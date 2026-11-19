@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "run_url": "https://github.com/chatgptopenaiagi/COC/actions/runs/44495800269",
+  "commit": "cc83fce6160166ee4b0745585cf12ca3ca155de0",
+  "all_build_stages": "PASS",
+  "go_rust_javascript_java_tests": "PASS",
+  "python": {"passed": 5, "skipped": 5, "setup_errors": 20},
+  "reason": "The fresh checkout lacked the .runtime parent directory required by pytest --basetemp.",
+  "fix": "Create the runtime parent explicitly in the test command, without changing test assertions."
+}

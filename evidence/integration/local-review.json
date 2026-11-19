@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "mode": "actual application operations submitted by outer engineering controller; no new model call",
+  "results": [
+    {
+      "host_id": "python-science",
+      "task_id": "be85cd29648655ffe8ad41a293f45656",
+      "result": {
+        "count": 3,
+        "mean": 8,
+        "sum": 24
+      },
+      "receipt_id": "0ca90d954fd9a2adb9488e2a70403320"
+    },
+    {
+      "host_id": "java-enterprise",
+      "task_id": "c663456e1858f3d742559acc22fab4e6",
+      "result": {
+        "invoice_id": "c663456e1858f3d742559acc22fab4e6",
+        "total": "7.50"
+      },
+      "receipt_id": "a33d6a12052e973c3c233d5f727bf0ee"
+    },
+    {
+      "host_id": "javascript-web",
+      "task_id": "82149e577bb960dcee663fdf564d376c",
+      "result": {
+        "characters": 29,
+        "words": 3
+      },
+      "receipt_id": "0e3d7a64e3dba06c7190c168c2889da4"
+    },
+    {
+      "host_id": "rust-native",
+      "task_id": "2e26af4b5e49c4bc74672a4e4df7f61b",
+      "result": {
+        "pid": 18660,
+        "sum": 11
+      },
+      "receipt_id": "860f8a2c78575998f0921880b3d9eb25"
+    }
+  ],
+  "integrity_verified": true
+}

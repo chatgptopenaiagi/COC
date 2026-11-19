@@ -5,7 +5,7 @@ $python=Join-Path $root '.venv/Scripts/python.exe'
 if(!$IsWindows){$python=Join-Path $root '.venv/bin/python'}
 $cargo='cargo'
 if(Test-Path .tools/cargo/bin/cargo.exe){$env:RUSTUP_HOME=Join-Path $root '.tools/rustup';$env:CARGO_HOME=Join-Path $root '.tools/cargo';$cargo=Join-Path $root '.tools/cargo/bin/cargo.exe'}
-New-Item -ItemType Directory -Path evidence/tests -Force | Out-Null
+New-Item -ItemType Directory -Path evidence/tests,.runtime -Force | Out-Null
 # Default verification never spends API credits or launches inference.
 foreach($name in @('COC_LIVE_OPENAI','COC_LIVE_CODEX','COC_LIVE_CODEX_ACCOUNTING','COC_LIVE_EXISTING','COC_LIVE_CODEX_CANCEL')){Remove-Item -LiteralPath "Env:$name" -ErrorAction SilentlyContinue}
 $results=[System.Collections.Generic.List[object]]::new()
