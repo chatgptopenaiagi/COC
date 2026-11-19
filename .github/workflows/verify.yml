@@ -1,0 +1,53 @@
+name: COC cross-platform verification
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: kernels/go/go.mod
+          cache-dependency-path: kernels/go/go.sum
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install isolated dependencies
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install -r requirements-dev.lock
+          .venv/bin/python -m pip install -e kernels/python
+          npm ci
+          npx playwright install --with-deps chromium
+          rustup update stable
+      - name: Build and test every core language
+        shell: pwsh
+        run: ./COC.ps1 VERIFY
+      - name: Preserve actual Linux evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-verification
+          path: |
+            evidence/builds/
+            evidence/tests/
+            evidence/integration/operator-panel.json
+            evidence/integration/cross-language.json
+            evidence/recovery/
+            evidence/security/
+          retention-days: 30

@@ -1,0 +1,148 @@
+// Generated from the canonical COC schema. Do not edit.
+export default {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/chatgptopenaiagi/COC/specifications/message-v1",
+    "title": "COC-PROTOCOL/1 request",
+    "type": "object",
+    "required": [
+        "jsonrpc",
+        "id",
+        "method",
+        "params"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "jsonrpc": {
+            "const": "2.0"
+        },
+        "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+        },
+        "method": {
+            "enum": [
+                "COC.HELLO",
+                "COC.DISCOVER",
+                "COC.AUTHENTICATE",
+                "COC.CAPABILITIES",
+                "COC.REGISTER",
+                "COC.ATTACH",
+                "COC.DELEGATE",
+                "COC.MESSAGE",
+                "COC.TOOL_REQUEST",
+                "COC.TOOL_RESULT",
+                "COC.EVENT",
+                "COC.HEARTBEAT",
+                "COC.ERROR",
+                "COC.CANCEL",
+                "COC.RECOVER",
+                "COC.DETACH",
+                "COC.SHUTDOWN"
+            ]
+        },
+        "params": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "protocol_version",
+                "message_id",
+                "agent_id",
+                "parent_agent_id",
+                "child_agent_id",
+                "host_id",
+                "session_id",
+                "task_id",
+                "correlation_id",
+                "timestamp",
+                "scope",
+                "payload",
+                "status",
+                "error",
+                "integrity"
+            ],
+            "properties": {
+                "protocol_version": {
+                    "const": "COC-PROTOCOL/1"
+                },
+                "message_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                },
+                "agent_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                },
+                "parent_agent_id": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "child_agent_id": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "host_id": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "session_id": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "task_id": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "correlation_id": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "scope": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "maxItems": 128
+                },
+                "payload": {
+                    "type": "object"
+                },
+                "status": {
+                    "enum": [
+                        "request",
+                        "ok",
+                        "error",
+                        "event"
+                    ]
+                },
+                "error": {
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                },
+                "integrity": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+};

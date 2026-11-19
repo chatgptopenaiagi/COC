@@ -1,0 +1,6 @@
+plugins { id 'java-library'; id 'application' }
+group = 'io.coc'; version = '0.1.0-alpha.1'
+repositories { mavenCentral() }
+dependencies { api 'com.google.code.gson:gson:2.13.2'; runtimeOnly 'com.h2database:h2:2.3.232' }
+java { toolchain { languageVersion = JavaLanguageVersion.of(21) } }
+application { mainClass = 'io.coc.EnterpriseHost' }

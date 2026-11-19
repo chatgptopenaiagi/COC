@@ -1,0 +1,142 @@
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=75
+* Getting build dependencies for sdist...
+running egg_info
+writing src\coc_engine.egg-info\PKG-INFO
+writing dependency_links to src\coc_engine.egg-info\dependency_links.txt
+writing entry points to src\coc_engine.egg-info\entry_points.txt
+writing requirements to src\coc_engine.egg-info\requires.txt
+writing top-level names to src\coc_engine.egg-info\top_level.txt
+reading manifest file 'src\coc_engine.egg-info\SOURCES.txt'
+writing manifest file 'src\coc_engine.egg-info\SOURCES.txt'
+* Installed build dependency versions:
+  - setuptools==84.2.1
+* Building sdist...
+running sdist
+running egg_info
+writing src\coc_engine.egg-info\PKG-INFO
+writing dependency_links to src\coc_engine.egg-info\dependency_links.txt
+writing entry points to src\coc_engine.egg-info\entry_points.txt
+writing requirements to src\coc_engine.egg-info\requires.txt
+writing top-level names to src\coc_engine.egg-info\top_level.txt
+reading manifest file 'src\coc_engine.egg-info\SOURCES.txt'
+writing manifest file 'src\coc_engine.egg-info\SOURCES.txt'
+warning: sdist: standard file not found: should have one of README, README.rst, README.txt, README.md
+
+running check
+creating coc_engine-0.1.0a1
+creating coc_engine-0.1.0a1\src\coc
+creating coc_engine-0.1.0a1\src\coc_engine.egg-info
+copying files to coc_engine-0.1.0a1...
+copying pyproject.toml -> coc_engine-0.1.0a1
+copying src\coc\__init__.py -> coc_engine-0.1.0a1\src\coc
+copying src\coc\client.py -> coc_engine-0.1.0a1\src\coc
+copying src\coc\codex.py -> coc_engine-0.1.0a1\src\coc
+copying src\coc\codex_socket.py -> coc_engine-0.1.0a1\src\coc
+copying src\coc\context.py -> coc_engine-0.1.0a1\src\coc
+copying src\coc\control.py -> coc_engine-0.1.0a1\src\coc
+copying src\coc\host.py -> coc_engine-0.1.0a1\src\coc
+copying src\coc\mcp.py -> coc_engine-0.1.0a1\src\coc
+copying src\coc\message.schema.json -> coc_engine-0.1.0a1\src\coc
+copying src\coc\orchestration.py -> coc_engine-0.1.0a1\src\coc
+copying src\coc\provider_host.py -> coc_engine-0.1.0a1\src\coc
+copying src\coc\providers.py -> coc_engine-0.1.0a1\src\coc
+copying src\coc\repair.py -> coc_engine-0.1.0a1\src\coc
+copying src\coc\secrets.py -> coc_engine-0.1.0a1\src\coc
+copying src\coc_engine.egg-info\PKG-INFO -> coc_engine-0.1.0a1\src\coc_engine.egg-info
+copying src\coc_engine.egg-info\SOURCES.txt -> coc_engine-0.1.0a1\src\coc_engine.egg-info
+copying src\coc_engine.egg-info\dependency_links.txt -> coc_engine-0.1.0a1\src\coc_engine.egg-info
+copying src\coc_engine.egg-info\entry_points.txt -> coc_engine-0.1.0a1\src\coc_engine.egg-info
+copying src\coc_engine.egg-info\requires.txt -> coc_engine-0.1.0a1\src\coc_engine.egg-info
+copying src\coc_engine.egg-info\top_level.txt -> coc_engine-0.1.0a1\src\coc_engine.egg-info
+Writing coc_engine-0.1.0a1\setup.cfg
+Creating tar archive
+removing 'coc_engine-0.1.0a1' (and everything under it)
+* Building wheel from sdist
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=75
+* Getting build dependencies for wheel...
+running egg_info
+writing src\coc_engine.egg-info\PKG-INFO
+writing dependency_links to src\coc_engine.egg-info\dependency_links.txt
+writing entry points to src\coc_engine.egg-info\entry_points.txt
+writing requirements to src\coc_engine.egg-info\requires.txt
+writing top-level names to src\coc_engine.egg-info\top_level.txt
+reading manifest file 'src\coc_engine.egg-info\SOURCES.txt'
+writing manifest file 'src\coc_engine.egg-info\SOURCES.txt'
+* Installed build dependency versions:
+  - setuptools==84.2.1
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+creating build\lib\coc
+copying src\coc\client.py -> build\lib\coc
+copying src\coc\codex.py -> build\lib\coc
+copying src\coc\codex_socket.py -> build\lib\coc
+copying src\coc\context.py -> build\lib\coc
+copying src\coc\control.py -> build\lib\coc
+copying src\coc\host.py -> build\lib\coc
+copying src\coc\mcp.py -> build\lib\coc
+copying src\coc\orchestration.py -> build\lib\coc
+copying src\coc\providers.py -> build\lib\coc
+copying src\coc\provider_host.py -> build\lib\coc
+copying src\coc\repair.py -> build\lib\coc
+copying src\coc\secrets.py -> build\lib\coc
+copying src\coc\__init__.py -> build\lib\coc
+running egg_info
+writing src\coc_engine.egg-info\PKG-INFO
+writing dependency_links to src\coc_engine.egg-info\dependency_links.txt
+writing entry points to src\coc_engine.egg-info\entry_points.txt
+writing requirements to src\coc_engine.egg-info\requires.txt
+writing top-level names to src\coc_engine.egg-info\top_level.txt
+reading manifest file 'src\coc_engine.egg-info\SOURCES.txt'
+writing manifest file 'src\coc_engine.egg-info\SOURCES.txt'
+copying src\coc\message.schema.json -> build\lib\coc
+installing to build\bdist.win-amd64\wheel
+running install
+running install_lib
+creating build\bdist.win-amd64\wheel
+creating build\bdist.win-amd64\wheel\coc
+copying build\lib\coc\client.py -> build\bdist.win-amd64\wheel\.\coc
+copying build\lib\coc\codex.py -> build\bdist.win-amd64\wheel\.\coc
+copying build\lib\coc\codex_socket.py -> build\bdist.win-amd64\wheel\.\coc
+copying build\lib\coc\context.py -> build\bdist.win-amd64\wheel\.\coc
+copying build\lib\coc\control.py -> build\bdist.win-amd64\wheel\.\coc
+copying build\lib\coc\host.py -> build\bdist.win-amd64\wheel\.\coc
+copying build\lib\coc\mcp.py -> build\bdist.win-amd64\wheel\.\coc
+copying build\lib\coc\message.schema.json -> build\bdist.win-amd64\wheel\.\coc
+copying build\lib\coc\orchestration.py -> build\bdist.win-amd64\wheel\.\coc
+copying build\lib\coc\providers.py -> build\bdist.win-amd64\wheel\.\coc
+copying build\lib\coc\provider_host.py -> build\bdist.win-amd64\wheel\.\coc
+copying build\lib\coc\repair.py -> build\bdist.win-amd64\wheel\.\coc
+copying build\lib\coc\secrets.py -> build\bdist.win-amd64\wheel\.\coc
+copying build\lib\coc\__init__.py -> build\bdist.win-amd64\wheel\.\coc
+running install_egg_info
+Copying src\coc_engine.egg-info to build\bdist.win-amd64\wheel\.\coc_engine-0.1.0a1-py3.14.egg-info
+running install_scripts
+creating build\bdist.win-amd64\wheel\coc_engine-0.1.0a1.dist-info\WHEEL
+creating 'C:\\xampp\\COC\\dist\\python\\.tmp-chb33gkg\\coc_engine-0.1.0a1-py3-none-any.whl' and adding 'build\\bdist.win-amd64\\wheel' to it
+adding 'coc/__init__.py'
+adding 'coc/client.py'
+adding 'coc/codex.py'
+adding 'coc/codex_socket.py'
+adding 'coc/context.py'
+adding 'coc/control.py'
+adding 'coc/host.py'
+adding 'coc/mcp.py'
+adding 'coc/message.schema.json'
+adding 'coc/orchestration.py'
+adding 'coc/provider_host.py'
+adding 'coc/providers.py'
+adding 'coc/repair.py'
+adding 'coc/secrets.py'
+adding 'coc_engine-0.1.0a1.dist-info/METADATA'
+adding 'coc_engine-0.1.0a1.dist-info/WHEEL'
+adding 'coc_engine-0.1.0a1.dist-info/entry_points.txt'
+adding 'coc_engine-0.1.0a1.dist-info/top_level.txt'
+adding 'coc_engine-0.1.0a1.dist-info/RECORD'
+removing build\bdist.win-amd64\wheel
+Successfully built coc_engine-0.1.0a1.tar.gz and coc_engine-0.1.0a1-py3-none-any.whl

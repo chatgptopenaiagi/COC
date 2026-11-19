@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "parent_task_id": "e10d5457472a5f8d2e34a8c0944f4a3c",
+  "child_task_id": "c083a267c06d6589904fda2ca0c70561",
+  "thread_id": "01a1f309-f953-77e3-9f4e-49cfc8f86262",
+  "codex_turn_status": "interrupted",
+  "parent_state": "cancelled",
+  "child_state": "cancelled",
+  "ack_seconds": 0.0034941999983857386,
+  "end_to_end_cancel_seconds": 0.4208407000041916,
+  "remote_billing_guarantee": false
+}

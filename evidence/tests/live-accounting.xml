@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="11.326" timestamp="2026-11-19T09:46:21.680867+01:00" hostname="DESKTOP-44UK3UB"><testcase classname="tests.integration.test_live_accounting" name="test_live_codex_usage_reaches_task_ledger" time="11.241" /></testsuite></testsuites>

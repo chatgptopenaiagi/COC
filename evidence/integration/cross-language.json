@@ -1,0 +1,285 @@
+{
+  "test": "real processes, deterministic host functions; no model invoked",
+  "verified_tasks": [
+    {
+      "id": "2339c80a71291ef9f47e4f45faf6bf64",
+      "root_id": "2339c80a71291ef9f47e4f45faf6bf64",
+      "owner": "operator",
+      "host_id": "python-science",
+      "tool": "statistics",
+      "arguments": {
+        "values": [
+          10,
+          20,
+          30
+        ]
+      },
+      "result": {
+        "count": 3,
+        "mean": 20,
+        "sum": 60
+      },
+      "state": "succeeded",
+      "depth": 0,
+      "budget": {
+        "max_depth": 2,
+        "max_tasks": 16,
+        "max_concurrent": 4,
+        "token_limit": 8192,
+        "reserved_tokens": 0,
+        "used_tokens": 0
+      },
+      "scopes": [
+        "*"
+      ],
+      "created": 1795079747707,
+      "updated": 1795079747775,
+      "deadline": 1795079867707,
+      "lease_until": 0,
+      "claim_id": "4897a90d5ac25b04d25c93a27eebf22a",
+      "attempt": 1,
+      "idempotency_key": "f62612168e0642bc93d973f3aa065344",
+      "fingerprint": "266727e0bf030314664e0ef7c93d4a17ad7ae0c51b801ae276194fe37d3c35a2",
+      "receipt": {
+        "id": "bffa9167030b60a2fc53fa2b1f35dfaf",
+        "task_id": "2339c80a71291ef9f47e4f45faf6bf64",
+        "executor": "python-host",
+        "host_id": "python-science",
+        "tool": "statistics",
+        "attempt": 1,
+        "claim_id": "4897a90d5ac25b04d25c93a27eebf22a",
+        "input_digest": "ba65cb80d4ef310d56804505556b08464e0e6f1f3ffed7efe89c0dbe381803e8",
+        "output_digest": "91afb5a4bcac388c392da859c61a7fdb8a94f6416c65d872ad79b85312873dec",
+        "outcome": "succeeded",
+        "at": 1795079747775,
+        "verification": "executor-reported; output schema validated; semantic verification is separate"
+      }
+    },
+    {
+      "id": "c1c55b2d18755c5c11c93cd9bf8172e6",
+      "root_id": "c1c55b2d18755c5c11c93cd9bf8172e6",
+      "owner": "operator",
+      "host_id": "javascript-web",
+      "tool": "text_metrics",
+      "arguments": {
+        "text": "real application work"
+      },
+      "result": {
+        "characters": 21,
+        "words": 3
+      },
+      "state": "succeeded",
+      "depth": 0,
+      "budget": {
+        "max_depth": 2,
+        "max_tasks": 16,
+        "max_concurrent": 4,
+        "token_limit": 8192,
+        "reserved_tokens": 0,
+        "used_tokens": 0
+      },
+      "scopes": [
+        "*"
+      ],
+      "created": 1795079747815,
+      "updated": 1795079747876,
+      "deadline": 1795079867815,
+      "lease_until": 0,
+      "claim_id": "6a2d2bd4d8fa764df39fce97eb8db002",
+      "attempt": 1,
+      "idempotency_key": "ad1ba417b77f43499244734964435e5d",
+      "fingerprint": "eb7df324563d077bae90bc720d08a2c00283200470267518a826db215d23a1fa",
+      "receipt": {
+        "id": "783733116d6b06fc77dd63c0450786ff",
+        "task_id": "c1c55b2d18755c5c11c93cd9bf8172e6",
+        "executor": "javascript-host",
+        "host_id": "javascript-web",
+        "tool": "text_metrics",
+        "attempt": 1,
+        "claim_id": "6a2d2bd4d8fa764df39fce97eb8db002",
+        "input_digest": "65770daf397d8c06990226492f5b45910f3bdf6d3036a2534791383d08828258",
+        "output_digest": "1845ea4c737e1684444cae4df9ef2366e809b6f0eac9d14ddec2b4c6816e4c34",
+        "outcome": "succeeded",
+        "at": 1795079747876,
+        "verification": "executor-reported; output schema validated; semantic verification is separate"
+      }
+    },
+    {
+      "id": "f1f8ffeb481435b47c876765d620474f",
+      "root_id": "f1f8ffeb481435b47c876765d620474f",
+      "owner": "operator",
+      "host_id": "java-enterprise",
+      "tool": "invoice",
+      "arguments": {
+        "unit_price": "12.50",
+        "units": 3
+      },
+      "result": {
+        "invoice_id": "f1f8ffeb481435b47c876765d620474f",
+        "total": "37.50"
+      },
+      "state": "succeeded",
+      "depth": 0,
+      "budget": {
+        "max_depth": 2,
+        "max_tasks": 16,
+        "max_concurrent": 4,
+        "token_limit": 8192,
+        "reserved_tokens": 0,
+        "used_tokens": 0
+      },
+      "scopes": [
+        "*"
+      ],
+      "created": 1795079747922,
+      "updated": 1795079747968,
+      "deadline": 1795079867922,
+      "lease_until": 0,
+      "claim_id": "7b89577b34b3f46e978526c24cb79ee0",
+      "attempt": 1,
+      "idempotency_key": "451e2ffbc7e14b308fca5310dc000725",
+      "fingerprint": "1ac2e70a3ae279817d747ee6c031a85ef08259fee99a7d9bcfe62bfd12586414",
+      "receipt": {
+        "id": "e4aeda7d9acd48887e8fc656a3d7cd95",
+        "task_id": "f1f8ffeb481435b47c876765d620474f",
+        "executor": "java-host",
+        "host_id": "java-enterprise",
+        "tool": "invoice",
+        "attempt": 1,
+        "claim_id": "7b89577b34b3f46e978526c24cb79ee0",
+        "input_digest": "015a66fd2276fd03e452a0c3ec64e4ff8340429629d5ac3b19c2d86b6d81be0c",
+        "output_digest": "e97125cb6360ea4bee6cb8841e6fa1eca3a67ff296442ce9d96583b5beeeda6e",
+        "outcome": "succeeded",
+        "at": 1795079747968,
+        "verification": "executor-reported; output schema validated; semantic verification is separate"
+      }
+    },
+    {
+      "id": "7ba732290a797a7a39092771d10eb06b",
+      "root_id": "7ba732290a797a7a39092771d10eb06b",
+      "owner": "operator",
+      "host_id": "rust-native",
+      "tool": "sum",
+      "arguments": {
+        "values": [
+          2,
+          3,
+          5
+        ]
+      },
+      "result": {
+        "pid": 8108,
+        "sum": 10
+      },
+      "state": "succeeded",
+      "depth": 0,
+      "budget": {
+        "max_depth": 2,
+        "max_tasks": 16,
+        "max_concurrent": 4,
+        "token_limit": 8192,
+        "reserved_tokens": 0,
+        "used_tokens": 0
+      },
+      "scopes": [
+        "*"
+      ],
+      "created": 1795079748030,
+      "updated": 1795079748085,
+      "deadline": 1795079868030,
+      "lease_until": 0,
+      "claim_id": "87bc22f483f17bdb948b722a66fb7c5b",
+      "attempt": 1,
+      "idempotency_key": "3901bdac63dc4af6af8974bff05b1ef8",
+      "fingerprint": "b4fdf9ea92c57a986693863ce2470730ecaabe79274c90f28fb61ba0d4d32ddb",
+      "receipt": {
+        "id": "28dc7e96a92a290b847979bc751f494f",
+        "task_id": "7ba732290a797a7a39092771d10eb06b",
+        "executor": "rust-host",
+        "host_id": "rust-native",
+        "tool": "sum",
+        "attempt": 1,
+        "claim_id": "87bc22f483f17bdb948b722a66fb7c5b",
+        "input_digest": "5b530cc614483604ff54c569667c67a3233553fcebeb980456ff8cbd1ad74e22",
+        "output_digest": "488651eb1890f05a7dfacf88bd1344575f095dbcf227dac278f9a4e0d662dcf3",
+        "outcome": "succeeded",
+        "at": 1795079748085,
+        "verification": "executor-reported; output schema validated; semantic verification is separate"
+      }
+    }
+  ],
+  "healthcare_task": {
+    "id": "d6a757673bc808ed033c127a1e43f9f7",
+    "root_id": "d6a757673bc808ed033c127a1e43f9f7",
+    "owner": "operator",
+    "host_id": "java-enterprise",
+    "tool": "synthetic_report",
+    "arguments": {},
+    "result": {
+      "entry": [
+        {
+          "resource": {
+            "active": true,
+            "id": "synthetic-001",
+            "name": [
+              {
+                "family": "TEST-ONLY",
+                "given": [
+                  "Synthetic"
+                ]
+              }
+            ],
+            "resourceType": "Patient"
+          }
+        }
+      ],
+      "resourceType": "Bundle",
+      "synthetic": true,
+      "type": "collection"
+    },
+    "state": "succeeded",
+    "depth": 0,
+    "budget": {
+      "max_depth": 2,
+      "max_tasks": 16,
+      "max_concurrent": 4,
+      "token_limit": 8192,
+      "reserved_tokens": 0,
+      "used_tokens": 0
+    },
+    "scopes": [
+      "*"
+    ],
+    "created": 1795079748139,
+    "updated": 1795079748188,
+    "deadline": 1795079868139,
+    "lease_until": 0,
+    "claim_id": "643c9366136170cb0a5976e399d174b0",
+    "attempt": 1,
+    "idempotency_key": "793171d324ff45ce98bb7ec5e9506f39",
+    "fingerprint": "e84e267259e9cf33599fee2dce6a9acd991ed1d6425df3b0ec1d011a80e1beb5",
+    "receipt": {
+      "id": "864616f741c56574f040f24cb3ab9cdf",
+      "task_id": "d6a757673bc808ed033c127a1e43f9f7",
+      "executor": "java-host",
+      "host_id": "java-enterprise",
+      "tool": "synthetic_report",
+      "attempt": 1,
+      "claim_id": "643c9366136170cb0a5976e399d174b0",
+      "input_digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "output_digest": "4001c4e18e6139d6a09045be37962b389ff3f9a9191d0d1033584be3c903d59c",
+      "outcome": "succeeded",
+      "at": 1795079748188,
+      "verification": "executor-reported; output schema validated; semantic verification is separate"
+    }
+  },
+  "languages": [
+    "go",
+    "rust",
+    "python",
+    "java",
+    "javascript",
+    "typescript"
+  ],
+  "integrity_verified": true
+}

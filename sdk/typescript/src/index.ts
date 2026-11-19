@@ -1,0 +1,48 @@
+import {Validator,Schema} from '@cfworker/json-schema';
+import schema from './schema.js';
+export const VERSION='COC-PROTOCOL/1' as const;
+export type Method='COC.HELLO'|'COC.DISCOVER'|'COC.AUTHENTICATE'|'COC.CAPABILITIES'|'COC.REGISTER'|'COC.ATTACH'|'COC.DELEGATE'|'COC.MESSAGE'|'COC.TOOL_REQUEST'|'COC.TOOL_RESULT'|'COC.EVENT'|'COC.HEARTBEAT'|'COC.ERROR'|'COC.CANCEL'|'COC.RECOVER'|'COC.DETACH'|'COC.SHUTDOWN';
+export type Json=string|number|boolean|null|Json[]|{[key:string]:Json};
+export type Payload=Record<string,Json>;
+export interface Envelope {protocol_version:typeof VERSION;message_id:string;agent_id:string;parent_agent_id:string|null;child_agent_id:string|null;host_id:string|null;session_id:string|null;task_id:string|null;correlation_id:string|null;timestamp:string;scope:string[];payload:Payload;status:'request'|'ok'|'error'|'event';error:Payload|null;integrity:Payload}
+export interface Request {jsonrpc:'2.0';id:string;method:Method;params:Envelope}
+export interface Receipt {id:string;task_id:string;executor:string;host_id:string;tool:string;input_digest:string;output_digest:string;outcome:string;at:number;verification:string}
+export interface Task {id:string;root_id:string;parent_id?:string;owner:string;host_id:string;tool:string;arguments:Payload;state:'queued'|'running'|'succeeded'|'failed'|'cancel_requested'|'cancelled'|'outcome_unknown';result?:Json;error?:Json;claim_id?:string;receipt?:Receipt;created:number;updated:number;deadline:number}
+export interface Capability {name:string;description:string;version:string;input_schema:Payload;output_schema:Payload;idempotent:boolean;cancellable:boolean}
+export interface Host {id:string;owner:string;name:string;language:string;capabilities:Capability[];last_seen:number;attached:boolean}
+export interface Event {sequence:number;kind:string;task_id?:string;principal:string;data:Payload;at:number;hash:string;previous_hash:string}
+export interface Snapshot {version:string;broker:{pid:number;uptime_ms:number;go_allocated_bytes:number;goroutines:number;cpu_percent:number|null;gpu_usage:number|null;rss_bytes?:number|null;cpu_measurement?:string;owned_subprocess_count?:number};hosts:Host[];agents:Payload[];sessions:Payload[];tasks:Task[];events:Event[];integrity_verified:boolean}
+const validator=new Validator(schema as Schema,'7');
+const contracts={validate:(schema:Payload,value:unknown)=>new Validator(schema as Schema,'7').validate(value).valid};
+export function validate(message:unknown):message is Request{return validator.validate(message).valid}
+export function envelope(agent:string,method:Method,payload:Payload={}):Request{return {jsonrpc:'2.0',id:crypto.randomUUID(),method,params:{protocol_version:VERSION,message_id:crypto.randomUUID(),agent_id:agent,parent_agent_id:null,child_agent_id:null,host_id:typeof payload.host_id==='string'?payload.host_id:null,session_id:null,task_id:typeof payload.task_id==='string'?payload.task_id:null,correlation_id:null,timestamp:new Date().toISOString(),scope:[],payload,status:'request',error:null,integrity:{}}}}
+export class COCError extends Error{constructor(public code:string,message:string){super(message);this.name='COCError'}}
+export class Client {
+ constructor(public readonly url:string,private readonly token:string,public readonly agent:string){const u=new URL(url);if(u.username||u.password||u.search||u.hash)throw new Error('invalid broker URL');if(u.protocol!=='https:'&&!(u.protocol==='http:'&&['127.0.0.1','localhost','[::1]'].includes(u.hostname)))throw new Error('remote transport requires HTTPS')}
+ async call<T=Payload>(method:Method,payload:Payload={},signal?:AbortSignal):Promise<T>{const message=envelope(this.agent,method,payload);if(!validate(message))throw new COCError('SCHEMA_INVALID','invalid COC envelope');const response=await fetch(this.url+'/rpc',{method:'POST',redirect:'error',headers:{'Content-Type':'application/json','Authorization':'Bearer '+this.token},body:JSON.stringify(message),signal:signal??AbortSignal.timeout(15000)});if(!response.ok)throw new COCError('HTTP_'+response.status,'broker request rejected');const result=await response.json();if(result.error)throw new COCError(result.error.data?.type??String(result.error.code),result.error.message);if(result.id!==message.id)throw new COCError('CORRELATION','response id mismatch');return result.result.payload.data as T}
+ submit(host:string,tool:string,args:Payload,parentId='',key=crypto.randomUUID()):Promise<Task>{return this.call(parentId?'COC.DELEGATE':'COC.TOOL_REQUEST',{host_id:host,tool,arguments:args,parent_id:parentId,idempotency_key:key})}
+ async wait(id:string,timeout=120000):Promise<Task>{const end=Date.now()+timeout;while(Date.now()<end){const t=await this.call<Task>('COC.RECOVER',{task_id:id});if(['succeeded','failed','cancelled','outcome_unknown'].includes(t.state))return t;await delay(100)}throw new Error('wait timed out; execution outcome remains unresolved')}
+ async *events(after=0,signal?:AbortSignal):AsyncGenerator<Event>{let retry=250;while(!signal?.aborted){try{const response=await fetch(`${this.url}/events?after=${after}`,{redirect:'error',headers:{Authorization:'Bearer '+this.token},signal});if(response.status===401||response.status===403)throw new COCError('UNAUTHORIZED','event access rejected');if(!response.ok||!response.body)throw new Error('event stream unavailable');let buffer='';for await(const chunk of streamChunks(response.body)){buffer+=chunk;let index:number;while((index=buffer.indexOf('\n\n'))>=0){const frame=buffer.slice(0,index);buffer=buffer.slice(index+2);const data=frame.split('\n').find(l=>l.startsWith('data: '));if(data){const event=JSON.parse(data.slice(6)) as Event;if(event.sequence>after){after=event.sequence;retry=250;yield event}}}}}catch(error){if(signal?.aborted)return;if(error instanceof COCError)throw error;}await delay(retry,signal);retry=Math.min(retry*2,5000)}}
+ discover_capabilities(){return this.call<{hosts:Host[]}>('COC.CAPABILITIES')}
+ get_task_status(task_id:string){return this.call<Task>('COC.RECOVER',{task_id})}
+ cancel_task(task_id:string){return this.call('COC.CANCEL',{task_id})}
+ detach_agent(host_id:string){return this.call('COC.DETACH',{host_id})}
+}
+async function* streamChunks(body:ReadableStream<Uint8Array>){const reader=body.getReader();const decoder=new TextDecoder();try{while(true){const r=await reader.read();if(r.done)return;yield decoder.decode(r.value,{stream:true})}}finally{reader.releaseLock()}}
+function delay(ms:number,signal?:AbortSignal){return new Promise<void>(resolve=>{if(signal?.aborted){resolve();return}const timer=setTimeout(done,ms);function done(){signal?.removeEventListener('abort',done);clearTimeout(timer);resolve()}signal?.addEventListener('abort',done,{once:true})})}
+export type ToolHandler=(args:Payload,signal:AbortSignal,task:Task)=>Promise<Json>|Json;
+export class HostAdapter {
+ private stopController=new AbortController();private active=new Map<string,AbortController>();
+ constructor(public client:Client,public id:string,public name:string,public tools:Map<string,{capability:Capability;execute:ToolHandler}>,public language='typescript'){}
+ discover_capabilities(){return [...this.tools.values()].map(t=>t.capability)}
+ read_application_state(){return {host_id:this.id,active_tasks:[...this.active.keys()]}}
+ list_available_tools(){return [...this.tools.keys()]}
+ async execute_authorized_tool(task:Task,signal:AbortSignal){const tool=this.tools.get(task.tool);if(!tool)throw new Error('tool not registered');if(!contracts.validate(tool.capability.input_schema,task.arguments))throw new Error('invalid input');const result=await tool.execute(task.arguments,signal,task);if(!contracts.validate(tool.capability.output_schema,result))throw new Error('invalid output');return result}
+ subscribe_to_events(after=0){return this.client.events(after,this.stopController.signal)}
+ get_task_status(id:string){return this.client.get_task_status(id)}
+ cancel_task(id:string){this.active.get(id)?.abort()}
+ report_error(id:string){return this.client.call('COC.ERROR',{task_id:id,category:'host_execution',message:'host execution failed'})}
+ request_operator_assistance(id:string,reason:string){return this.client.call('COC.EVENT',{task_id:id,kind:'operator_assistance',reason})}
+ async detach_agent(){this.stopController.abort();for(const a of this.active.values())a.abort();return this.client.detach_agent(this.id)}
+ async run(once=false){await this.client.call('COC.REGISTER',{kind:'host',id:this.id,name:this.name,language:this.language,capabilities:this.discover_capabilities() as unknown as Json});let heartbeatBusy=false;const timer=setInterval(async()=>{if(heartbeatBusy)return;heartbeatBusy=true;try{const r=await this.client.call<{cancel_task_ids:string[]}>('COC.HEARTBEAT',{host_id:this.id});r.cancel_task_ids.forEach(id=>this.cancel_task(id))}catch{for(const c of this.active.values())c.abort()}finally{heartbeatBusy=false}},400);try{while(!this.stopController.signal.aborted){const r=await this.client.call<{task:Task|null}>('COC.RECOVER',{action:'claim',host_id:this.id});if(!r.task){await delay(100,this.stopController.signal);continue}const task=r.task;const cancel=new AbortController();this.active.set(task.id,cancel);let result:Json=null;let error:Json=null;let outcome='succeeded';try{result=await this.execute_authorized_tool(task,cancel.signal)}catch{outcome=cancel.signal.aborted?'cancelled':'failed';error={message:'host execution failed'};await this.report_error(task.id)}await this.client.call('COC.TOOL_RESULT',{task_id:task.id,claim_id:task.claim_id??'',outcome,result,error});this.active.delete(task.id);if(once)break}}finally{clearInterval(timer)}}
+}

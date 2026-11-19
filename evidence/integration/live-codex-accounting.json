@@ -1,0 +1,122 @@
+{
+  "id": "9c22b4ee21a71772119e64cf85c93e1a",
+  "root_id": "9c22b4ee21a71772119e64cf85c93e1a",
+  "owner": "operator",
+  "host_id": "inner-codex",
+  "tool": "agent.run",
+  "arguments": {
+    "prompt": "Call the python-science statistics tool exactly once with values [6, 10]. Then report its returned mean briefly."
+  },
+  "result": {
+    "app_server_pid": 32968,
+    "elapsed_seconds": 6.598746199997549,
+    "events": [
+      {
+        "item_id": "01a1f2fc-5e34-71a0-91da-92b71e37c6d7",
+        "item_type": "userMessage",
+        "method": "item/completed"
+      },
+      {
+        "item_id": "msg_020e4b9386041d7b016afeb76558cc87d295143033ab0d7014",
+        "item_type": "agentMessage",
+        "method": "item/completed"
+      },
+      {
+        "item_id": "exec-b9478240-23f0-4e3f-8cb5-aa40809058b7",
+        "item_type": "dynamicToolCall",
+        "method": "item/completed"
+      },
+      {
+        "item_id": "msg_020e4b9386041d7b016afeb76861e087d2a8e4313fb57e1da2",
+        "item_type": "agentMessage",
+        "method": "item/completed"
+      }
+    ],
+    "status": "completed",
+    "text": "I\u2019ll calculate the mean using the statistics tool.\nThe returned mean is 8.",
+    "thread_id": "01a1f2fc-533d-7920-814a-8096b1d9eeb7",
+    "tool_results": [
+      {
+        "error": null,
+        "parent_task_id": "9c22b4ee21a71772119e64cf85c93e1a",
+        "receipt": {
+          "at": 1795077990614,
+          "attempt": 1,
+          "claim_id": "677df809adbcbde6139619e4eeb8b0fb",
+          "executor": "python-host",
+          "host_id": "python-science",
+          "id": "33c55a377973141bcce839fe52c9d58e",
+          "input_digest": "511a92ef907cca40227bd8ec942d28a3b9bea87ec32376d99af428c4f28bbd0c",
+          "outcome": "succeeded",
+          "output_digest": "4463cd086a51700a02d88d1098c1e2bf6e12712e02c01b30e52685fa637ee0f6",
+          "task_id": "c2397d5a66e2ac00607d266ea8d6c16f",
+          "tool": "statistics",
+          "verification": "executor-reported; output schema validated; semantic verification is separate"
+        },
+        "result": {
+          "count": 2,
+          "mean": 8,
+          "sum": 16
+        },
+        "state": "succeeded",
+        "task_id": "c2397d5a66e2ac00607d266ea8d6c16f"
+      }
+    ],
+    "turn_id": "01a1f2fc-579c-7b83-9aa1-66da6ca7e0fc",
+    "usage": {
+      "last": {
+        "cacheWriteInputTokens": 0,
+        "cachedInputTokens": 15360,
+        "inputTokens": 15780,
+        "outputTokens": 11,
+        "reasoningOutputTokens": 0,
+        "totalTokens": 15791
+      },
+      "modelContextWindow": 258400,
+      "total": {
+        "cacheWriteInputTokens": 0,
+        "cachedInputTokens": 15360,
+        "inputTokens": 31178,
+        "outputTokens": 60,
+        "reasoningOutputTokens": 0,
+        "totalTokens": 31238
+      }
+    },
+    "usage_tokens": 31238
+  },
+  "state": "succeeded",
+  "depth": 0,
+  "budget": {
+    "max_depth": 2,
+    "max_tasks": 16,
+    "max_concurrent": 4,
+    "token_limit": 100000,
+    "reserved_tokens": 100000,
+    "used_tokens": 31238
+  },
+  "scopes": [
+    "*"
+  ],
+  "created": 1795077985012,
+  "updated": 1795077992807,
+  "deadline": 1795078105012,
+  "lease_until": 0,
+  "claim_id": "7a0e8c4dfc92a8bff354ac5a440e3a65",
+  "attempt": 1,
+  "idempotency_key": "b820968a408444dc9fc26057d46929eb",
+  "fingerprint": "b582f7addb623f6798f5c753efa547c42670f76c5ebc238494e2fc189d9e9503",
+  "receipt": {
+    "id": "8c6df57a43080493dabcd7d47fe76d12",
+    "task_id": "9c22b4ee21a71772119e64cf85c93e1a",
+    "executor": "inner-accounting",
+    "host_id": "inner-codex",
+    "tool": "agent.run",
+    "attempt": 1,
+    "claim_id": "7a0e8c4dfc92a8bff354ac5a440e3a65",
+    "input_digest": "e0c5eb7c1e94e14c0b977866b38b91f26bda6b265e961551c0d4c7441eec06f1",
+    "output_digest": "fb7af8e2332f20230b97534bf47f0d645ebc63a2b623b4d53422b1d40276932a",
+    "outcome": "succeeded",
+    "at": 1795077992807,
+    "verification": "executor-reported; output schema validated; semantic verification is separate"
+  }
+}

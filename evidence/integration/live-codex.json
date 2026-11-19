@@ -1,0 +1,498 @@
+{
+  "mode": "LIVE CODEX, authenticated ChatGPT CLI, real host functions",
+  "repair_before": {
+    "passed": false,
+    "cases": [
+      {
+        "values": [
+          10,
+          20,
+          30
+        ],
+        "expected": 20,
+        "actual": 30.0,
+        "passed": false
+      },
+      {
+        "values": [
+          7
+        ],
+        "error": "ZeroDivisionError",
+        "passed": false
+      },
+      {
+        "values": [
+          -2,
+          2
+        ],
+        "expected": 0,
+        "actual": 0.0,
+        "passed": true
+      },
+      {
+        "values": [
+          1.5,
+          2.5
+        ],
+        "expected": 2,
+        "actual": 4.0,
+        "passed": false
+      },
+      {
+        "empty_rejected": true,
+        "passed": true
+      }
+    ],
+    "exit_code": 1,
+    "source_sha256": "f0865028d05b1323915bdb6b0d9765badfd0d03e5f6a26a96f5325b74c573b2f"
+  },
+  "application_task": {
+    "id": "791f24a69b6c7d65acde8754d69eea52",
+    "root_id": "791f24a69b6c7d65acde8754d69eea52",
+    "owner": "operator",
+    "host_id": "inner-codex",
+    "tool": "agent.run",
+    "arguments": {
+      "context": "science",
+      "prompt": "Use the python-science statistics tool to compute the mean of [4, 8, 12]. Call the tool; do not calculate the result yourself. Report its task receipt."
+    },
+    "result": {
+      "app_server_pid": 25292,
+      "elapsed_seconds": 8.979205899995577,
+      "events": [
+        {
+          "item_id": "01a1f2f1-c6ba-7502-bc88-4b85e4b56e9f",
+          "item_type": "userMessage",
+          "method": "item/completed"
+        },
+        {
+          "item_id": "msg_01fee8124a994a8e016afeb4aff86887d2b9c5b12a9de6655c",
+          "item_type": "agentMessage",
+          "method": "item/completed"
+        },
+        {
+          "item_id": "exec-d14deed5-0fb5-47fc-a7e4-9ef2e3c3b0a9",
+          "item_type": "dynamicToolCall",
+          "method": "item/completed"
+        },
+        {
+          "item_id": "msg_01fee8124a994a8e016afeb4b2692887d2894b2f78f861610d",
+          "item_type": "agentMessage",
+          "method": "item/completed"
+        }
+      ],
+      "status": "completed",
+      "text": "I\u2019ll call the statistics tool and report its task receipt.\n\nThe tool returned a mean of **8**.\n\nTask receipt:\n- Task ID: `593a235d1febf5790026a6a0e7fe7ea7`\n- Receipt ID: `9fc8ede1a2b6920c3ca2e83becd00a77`\n- Tool: `python-science.statistics`\n- Outcome: `succeeded`\n- Verification: Executor-reported; output schema validated; semantic verification is separate.",
+      "thread_id": "01a1f2f1-bbea-7e10-8051-04ee26f17c35",
+      "tool_results": [
+        {
+          "error": null,
+          "parent_task_id": "791f24a69b6c7d65acde8754d69eea52",
+          "receipt": {
+            "at": 1795077297391,
+            "attempt": 1,
+            "claim_id": "2f585335a2e4fe86cca11e22809aead4",
+            "executor": "python-host",
+            "host_id": "python-science",
+            "id": "9fc8ede1a2b6920c3ca2e83becd00a77",
+            "input_digest": "85aedb8fa0a2b3a621c3a25f18b7cc9bead7c524c90a0d19ac2b56b14e9ff72d",
+            "outcome": "succeeded",
+            "output_digest": "290b95b77300b7b67e889cc402d55e5936df1fc0a3b3fa5b0b4a9d8c2152b681",
+            "task_id": "593a235d1febf5790026a6a0e7fe7ea7",
+            "tool": "statistics",
+            "verification": "executor-reported; output schema validated; semantic verification is separate"
+          },
+          "result": {
+            "count": 3,
+            "mean": 8,
+            "sum": 24
+          },
+          "state": "succeeded",
+          "task_id": "593a235d1febf5790026a6a0e7fe7ea7"
+        }
+      ],
+      "turn_id": "01a1f2f1-c0d6-7b32-b458-b33d92d972c0",
+      "usage": {
+        "last": {
+          "cacheWriteInputTokens": 0,
+          "cachedInputTokens": 15488,
+          "inputTokens": 15976,
+          "outputTokens": 102,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 16078
+        },
+        "modelContextWindow": 258400,
+        "total": {
+          "cacheWriteInputTokens": 0,
+          "cachedInputTokens": 15488,
+          "inputTokens": 31552,
+          "outputTokens": 153,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 31705
+        }
+      }
+    },
+    "state": "succeeded",
+    "depth": 0,
+    "budget": {
+      "max_depth": 2,
+      "max_tasks": 16,
+      "max_concurrent": 4,
+      "token_limit": 8192,
+      "reserved_tokens": 0,
+      "used_tokens": 0
+    },
+    "scopes": [
+      "*"
+    ],
+    "created": 1795077290923,
+    "updated": 1795077301220,
+    "deadline": 1795077470923,
+    "lease_until": 0,
+    "claim_id": "edce4a32286be098b90a7a274a0390e3",
+    "attempt": 1,
+    "idempotency_key": "7ed851bfb4ba43358ddc74e620bb8e63",
+    "fingerprint": "4dbcbba2b718b114d92f31bd0bebeb061ba9877e5bc351af9d30708524ad1adb",
+    "receipt": {
+      "id": "5cb09ae289d3dbb00b28038d761f7966",
+      "task_id": "791f24a69b6c7d65acde8754d69eea52",
+      "executor": "inner-codex",
+      "host_id": "inner-codex",
+      "tool": "agent.run",
+      "attempt": 1,
+      "claim_id": "edce4a32286be098b90a7a274a0390e3",
+      "input_digest": "843150db35c01541cca5e0bbe1a8b92e73969d034fe8c8495726a582b3fc7a65",
+      "output_digest": "72fd029cdcbf73b8f2a7021fc20b22ade9b3fdb7021d681d804113533126a129",
+      "outcome": "succeeded",
+      "at": 1795077301220,
+      "verification": "executor-reported; output schema validated; semantic verification is separate"
+    }
+  },
+  "repair_task": {
+    "id": "1a9c354163dd530171fcbd90ba797436",
+    "root_id": "1a9c354163dd530171fcbd90ba797436",
+    "owner": "operator",
+    "host_id": "inner-codex",
+    "tool": "agent.run",
+    "arguments": {
+      "context": "repair",
+      "prompt": "The repair-lab report average is defective. Use inspect_failure to reproduce it and inspect source. Propose a corrected return expression, apply it with apply_expression, then run verify_repair. No shell or file tools. Finish only after reporting actual test results. Do not deploy anything."
+    },
+    "result": {
+      "app_server_pid": 25292,
+      "elapsed_seconds": 16.664810600006604,
+      "events": [
+        {
+          "item_id": "01a1f2f1-ea6a-7991-9c18-fa1b53042801",
+          "item_type": "userMessage",
+          "method": "item/completed"
+        },
+        {
+          "item_id": "msg_08a37cd23797ebab016afeb4b8637c87d29ae4b76e833e3c7a",
+          "item_type": "agentMessage",
+          "method": "item/completed"
+        },
+        {
+          "item_id": "exec-2d3e2ffe-09f7-4b62-ab5f-3f7223a42465",
+          "item_type": "dynamicToolCall",
+          "method": "item/completed"
+        },
+        {
+          "item_id": "msg_08a37cd23797ebab016afeb4bb44a887d29d98e7365175e48f",
+          "item_type": "agentMessage",
+          "method": "item/completed"
+        },
+        {
+          "item_id": "exec-83aad52f-c553-4135-9e3e-7d4a6f4ed2ef",
+          "item_type": "dynamicToolCall",
+          "method": "item/completed"
+        },
+        {
+          "item_id": "exec-a763bf58-1d09-421a-8bc4-82b04acd2945",
+          "item_type": "dynamicToolCall",
+          "method": "item/completed"
+        },
+        {
+          "item_id": "msg_08a37cd23797ebab016afeb4c3f5f087d2b1e2d3b5c12bf1f0",
+          "item_type": "agentMessage",
+          "method": "item/completed"
+        }
+      ],
+      "status": "completed",
+      "text": "I\u2019ll inspect the failure and source, apply a corrected return expression, and run the regression verification in the isolated workspace.\n\nThe source divides by `len(values) - 1`, causing incorrect averages and division by zero for a single value. The corrected return expression is `sum(values) / len(values)`. The existing empty-input check remains valid.\n\nApplied `sum(values) / len(values)` in the isolated workspace.\n\nVerification: **5/5 tests passed**, exit code **0**:\n\n- `[10, 20, 30]` \u2192 `20`\n- `[7]` \u2192 `7`\n- `[-2, 2]` \u2192 `0`\n- `[1.5, 2.5]` \u2192 `2`\n- Empty input correctly rejected.\n\nNothing was deployed.",
+      "thread_id": "01a1f2f1-e461-7750-9323-9100d8ed3832",
+      "tool_results": [
+        {
+          "error": null,
+          "parent_task_id": "1a9c354163dd530171fcbd90ba797436",
+          "receipt": {
+            "at": 1795077305585,
+            "attempt": 1,
+            "claim_id": "77c2558c2c9ba6777d3f0bc890f3fa84",
+            "executor": "repair-lab",
+            "host_id": "repair-lab",
+            "id": "53e85bfed0cc62a047463b37cdbd8c08",
+            "input_digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+            "outcome": "succeeded",
+            "output_digest": "1af10713473a80250f2dac4f609ac016133189d56539f177836d7a9ac1ab8373",
+            "task_id": "a2d02574d366ed966934366859eca396",
+            "tool": "inspect_failure",
+            "verification": "executor-reported; output schema validated; semantic verification is separate"
+          },
+          "result": {
+            "constraint": "Propose only an arithmetic expression for the return statement; values is the input list.",
+            "failure": {
+              "cases": [
+                {
+                  "actual": 30,
+                  "expected": 20,
+                  "passed": false,
+                  "values": [
+                    10,
+                    20,
+                    30
+                  ]
+                },
+                {
+                  "error": "ZeroDivisionError",
+                  "passed": false,
+                  "values": [
+                    7
+                  ]
+                },
+                {
+                  "actual": 0,
+                  "expected": 0,
+                  "passed": true,
+                  "values": [
+                    -2,
+                    2
+                  ]
+                },
+                {
+                  "actual": 4,
+                  "expected": 2,
+                  "passed": false,
+                  "values": [
+                    1.5,
+                    2.5
+                  ]
+                },
+                {
+                  "empty_rejected": true,
+                  "passed": true
+                }
+              ],
+              "exit_code": 1,
+              "passed": false,
+              "source_sha256": "f0865028d05b1323915bdb6b0d9765badfd0d03e5f6a26a96f5325b74c573b2f"
+            },
+            "source": "\"\"\"Deliberate demonstration defect. Never imported by production software.\"\"\"\ndef report_average(values):\n    if not values:\n        raise ValueError('at least one value required')\n    return sum(values) / (len(values) - 1)\n"
+          },
+          "state": "succeeded",
+          "task_id": "a2d02574d366ed966934366859eca396"
+        },
+        {
+          "error": null,
+          "parent_task_id": "1a9c354163dd530171fcbd90ba797436",
+          "receipt": {
+            "at": 1795077309015,
+            "attempt": 1,
+            "claim_id": "4f1f71fa7f484919b8d7e141ce93f0be",
+            "executor": "repair-lab",
+            "host_id": "repair-lab",
+            "id": "e18107332a5291e6928c01288f844e94",
+            "input_digest": "fd5dd843675c06ccadfcc5bdc3bafbe75cb5f509d303dd70223a1991a49476e9",
+            "outcome": "succeeded",
+            "output_digest": "e087a1e2b7570a4b7e65d27c205bbaae5185d9b17974f940517ac986186a9449",
+            "task_id": "b905398909f58913ae66d071ece01b05",
+            "tool": "apply_expression",
+            "verification": "executor-reported; output schema validated; semantic verification is separate"
+          },
+          "result": {
+            "after_sha256": "f271bbf826256d98f5a179d7f06774c0bf005c1a7977e4e08bf78b5a6f1821f5",
+            "applied": true,
+            "before_sha256": "f0865028d05b1323915bdb6b0d9765badfd0d03e5f6a26a96f5325b74c573b2f",
+            "deployment": "not performed"
+          },
+          "state": "succeeded",
+          "task_id": "b905398909f58913ae66d071ece01b05"
+        },
+        {
+          "error": null,
+          "parent_task_id": "1a9c354163dd530171fcbd90ba797436",
+          "receipt": {
+            "at": 1795077312154,
+            "attempt": 1,
+            "claim_id": "57525367c0dcdc090f2b5e8d0d0ecc8a",
+            "executor": "repair-lab",
+            "host_id": "repair-lab",
+            "id": "30718445dcbb9fb3181c693b64b3664a",
+            "input_digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+            "outcome": "succeeded",
+            "output_digest": "5aefd0d192be4ba020ad70e941eb5914e37e95efbecf8dffa97fc4dfe34db005",
+            "task_id": "e4800871478dea7ab9373b13df9ca84c",
+            "tool": "verify_repair",
+            "verification": "executor-reported; output schema validated; semantic verification is separate"
+          },
+          "result": {
+            "cases": [
+              {
+                "actual": 20,
+                "expected": 20,
+                "passed": true,
+                "values": [
+                  10,
+                  20,
+                  30
+                ]
+              },
+              {
+                "actual": 7,
+                "expected": 7,
+                "passed": true,
+                "values": [
+                  7
+                ]
+              },
+              {
+                "actual": 0,
+                "expected": 0,
+                "passed": true,
+                "values": [
+                  -2,
+                  2
+                ]
+              },
+              {
+                "actual": 2,
+                "expected": 2,
+                "passed": true,
+                "values": [
+                  1.5,
+                  2.5
+                ]
+              },
+              {
+                "empty_rejected": true,
+                "passed": true
+              }
+            ],
+            "exit_code": 0,
+            "passed": true,
+            "source_sha256": "f271bbf826256d98f5a179d7f06774c0bf005c1a7977e4e08bf78b5a6f1821f5"
+          },
+          "state": "succeeded",
+          "task_id": "e4800871478dea7ab9373b13df9ca84c"
+        }
+      ],
+      "turn_id": "01a1f2f1-e51e-70f2-b0c4-3f9fdaa6d966",
+      "usage": {
+        "last": {
+          "cacheWriteInputTokens": 0,
+          "cachedInputTokens": 16640,
+          "inputTokens": 17215,
+          "outputTokens": 96,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 17311
+        },
+        "modelContextWindow": 258400,
+        "total": {
+          "cacheWriteInputTokens": 0,
+          "cachedInputTokens": 48256,
+          "inputTokens": 65728,
+          "outputTokens": 247,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 65975
+        }
+      }
+    },
+    "state": "succeeded",
+    "depth": 0,
+    "budget": {
+      "max_depth": 2,
+      "max_tasks": 16,
+      "max_concurrent": 4,
+      "token_limit": 8192,
+      "reserved_tokens": 0,
+      "used_tokens": 0
+    },
+    "scopes": [
+      "*"
+    ],
+    "created": 1795077301286,
+    "updated": 1795077318204,
+    "deadline": 1795077481286,
+    "lease_until": 0,
+    "claim_id": "f30cc3ff63386c001f2468388770729f",
+    "attempt": 1,
+    "idempotency_key": "0977cca78a604f2484606355e8d5e3e2",
+    "fingerprint": "71fff44fb396a52be6b73aed10f43a0dc57d1866f1dee8de24cce678c6b62680",
+    "receipt": {
+      "id": "22fdb98d82ad4ec65c4c4b79bc5ac14c",
+      "task_id": "1a9c354163dd530171fcbd90ba797436",
+      "executor": "inner-codex",
+      "host_id": "inner-codex",
+      "tool": "agent.run",
+      "attempt": 1,
+      "claim_id": "f30cc3ff63386c001f2468388770729f",
+      "input_digest": "033c7847991892fb5314fa28c7bc6b5e4f1b6beef1a8add170a77bc062e2cf1c",
+      "output_digest": "a029d17f6efbc07054cdc0d44d5ceac2b98e39c60c05b5fdb6d4947f455546a6",
+      "outcome": "succeeded",
+      "at": 1795077318204,
+      "verification": "executor-reported; output schema validated; semantic verification is separate"
+    }
+  },
+  "repair_after": {
+    "passed": true,
+    "cases": [
+      {
+        "values": [
+          10,
+          20,
+          30
+        ],
+        "expected": 20,
+        "actual": 20.0,
+        "passed": true
+      },
+      {
+        "values": [
+          7
+        ],
+        "expected": 7,
+        "actual": 7.0,
+        "passed": true
+      },
+      {
+        "values": [
+          -2,
+          2
+        ],
+        "expected": 0,
+        "actual": 0.0,
+        "passed": true
+      },
+      {
+        "values": [
+          1.5,
+          2.5
+        ],
+        "expected": 2,
+        "actual": 2.0,
+        "passed": true
+      },
+      {
+        "empty_rejected": true,
+        "passed": true
+      }
+    ],
+    "exit_code": 0,
+    "source_sha256": "f271bbf826256d98f5a179d7f06774c0bf005c1a7977e4e08bf78b5a6f1821f5"
+  },
+  "thread_resume_verified": true,
+  "same_app_server": true,
+  "distinct_threads": true,
+  "deployment_performed": false,
+  "integrity_verified": true
+}

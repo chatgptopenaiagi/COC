@@ -1,0 +1,17 @@
+{
+  "browser": "real Chromium/Edge",
+  "real_broker": true,
+  "scientific_result": 20,
+  "browser_host_result": "REAL BROWSER",
+  "credential_persisted": false,
+  "desktop": [
+    1440,
+    1080
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "page_errors": [],
+  "live_chat": null
+}

@@ -1,0 +1,156 @@
+{
+  "version": "0.1.0-alpha.1",
+  "generated_at": "2026-11-19T09:16:26.262106+00:00",
+  "production_ready": false,
+  "builds": [
+    {
+      "component": "go",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.6447799
+    },
+    {
+      "component": "rust",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.5773513
+    },
+    {
+      "component": "rust-release",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.5025923
+    },
+    {
+      "component": "typescript",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 1.7299182
+    },
+    {
+      "component": "java",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 2.5942303
+    },
+    {
+      "component": "python",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 13.753948
+    },
+    {
+      "component": "django",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 3.5386041
+    }
+  ],
+  "default_suites": [
+    {
+      "suite": "go",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "suite": "rust",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "suite": "javascript-typescript",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "suite": "java",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "suite": "python-all",
+      "status": "PASS",
+      "exit_code": 0
+    }
+  ],
+  "full_regression": {
+    "status": "PASS",
+    "counts": {
+      "tests": 30,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 5
+    },
+    "evidence": "evidence/tests/full-regression.xml",
+    "sha256": "d00de82322ffb73f0a81bd54df1c8f0fed1756fd8db4110d8f87aac3e6dcc4fb"
+  },
+  "live_owned_codex": {
+    "status": "PASS",
+    "counts": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "evidence": "evidence/tests/live-codex.xml",
+    "sha256": "13975d9ebf57a47d18303639ba43f0c114bfd2df950f2f5924b24e3ac360ae20"
+  },
+  "live_usage_accounting": {
+    "status": "PASS",
+    "counts": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "evidence": "evidence/tests/live-accounting.xml",
+    "sha256": "8aa37cd873bf27119a5c5154177e0ae459f2b1a8921a4b6967c4b4b440cd9256"
+  },
+  "live_existing_codex_browser": {
+    "status": "PASS",
+    "counts": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "evidence": "evidence/tests/existing-codex.xml",
+    "sha256": "618d0dc15c2c81dc3ae121203c220b054ed3341bbd242f9c251d223da069deb8"
+  },
+  "live_codex_cancellation": {
+    "status": "PASS",
+    "counts": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "evidence": "evidence/tests/codex-cancel.xml",
+    "sha256": "643cdca3badc633bd8ab021b9ca39521a7f8f05b0c40bb5b1ba6f2b1a0a724bb"
+  },
+  "openai_authentication": "PASS",
+  "openai_model_discovery": "PASS",
+  "openai_live_inference": {
+    "status": "BLOCKED",
+    "reason": "QUOTA OR BILLING",
+    "attempted_requests": 3,
+    "retry_authorized": false,
+    "evidence": "evidence/integration/openai-diagnostic.json"
+  },
+  "local_llama_inference": {
+    "status": "BLOCKED",
+    "reason": "configured endpoint requires separately authorized credential"
+  },
+  "android_runtime": "NOT TESTED",
+  "linux_runtime": "NOT TESTED locally; see separate GitHub Actions results",
+  "publication_scan": {
+    "status": "PASS",
+    "files_scanned": 160,
+    "failures": [],
+    "actual_key_compared_in_memory": true,
+    "key_value_logged": false
+  },
+  "coverage_complete": true,
+  "local_core_acceptance": "PASS",
+  "live_evidence_note": "Retained live tests ran separately; default regression deliberately skips inference. CI does not reassert local account access."
+}

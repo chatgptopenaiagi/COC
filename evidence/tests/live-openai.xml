@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="9.700" timestamp="2026-11-19T09:38:35.857995+01:00" hostname="DESKTOP-44UK3UB"><testcase classname="tests.integration.test_live_openai" name="test_live_openai_tool_delegation" time="9.474"><failure message="coc.providers.ProviderError: openai returned HTTP 429 (unclassified); no automatic retry">broker = &lt;conftest.RunningBroker object at 0x0000025D8E618050&gt;
+
+    @pytest.mark.skipif(os.environ.get('COC_LIVE_OPENAI')!='1',reason='billable OpenAI tests require explicit opt-in')
+    def test_live_openai_tool_delegation(broker):
+        broker.host('python')
+        ledger=UsageLedger(ROOT/'.runtime/openai-integration-budget.sqlite',Policy())
+        provider=configured_provider({'provider':'openai','model':'gpt-4.1-mini','key_file':str(ROOT/'openai-api-key.txt'),'context_limit':1047576},ledger)
+        # No patient, application secrets, or filesystem context is sent to the model.
+        tool={'name':'statistics','description':'Compute the mean of supplied numbers in the authorized scientific host',
+              'input_schema':{'type':'object','properties':{'values':{'type':'array','items':{'type':'number'}}},'required':['values'],'additionalProperties':False}}
+&gt;       result=provider.generate('Call statistics exactly once with values [3, 6, 9]. Do not calculate it yourself.',tools=[tool],max_output_tokens=128)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_live_openai.py:16: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;coc.providers.HTTPProvider object at 0x0000025D8E618C20&gt;
+prompt = 'Call statistics exactly once with values [3, 6, 9]. Do not calculate it yourself.'
+tools = [{'name': 'statistics', 'description': 'Compute the mean of supplied numbers in the authorized scientific host', 'inpu...': {'values': {'type': 'array', 'items': {'type': 'number'}}}, 'required': ['values'], 'additionalProperties': False}}]
+max_output_tokens = 128, cancelled = None
+
+    def generate(self,prompt,*,tools=None,max_output_tokens=256,cancelled=None):
+        if cancelled and cancelled.is_set():raise InterruptedError()
+        tools=tools or []
+        if tools and not self.tool_calling:raise ProviderError('tool calling is not enabled for this configured model')
+        p=self.ledger.policy
+        if self.wire=='responses':
+            body={'model':self.model,'input':prompt,'max_output_tokens':max_output_tokens,'store':False}
+            if tools:body['tools']=[{'type':'function','name':t['name'],'description':t['description'],'parameters':t['input_schema']} for t in tools]
+            endpoint='/responses'
+        elif self.wire=='anthropic':
+            body={'model':self.model,'messages':[{'role':'user','content':prompt}],'max_tokens':max_output_tokens}
+            if tools:body['tools']=[{'name':t['name'],'description':t['description'],'input_schema':t['input_schema']} for t in tools]
+            endpoint='/messages'
+        elif self.wire=='chat':
+            body={'model':self.model,'messages':[{'role':'user','content':prompt}],'max_tokens':max_output_tokens,'stream':False}
+            if tools:body['tools']=[{'type':'function','function':{'name':t['name'],'description':t['description'],'parameters':t['input_schema']}} for t in tools]
+            endpoint='/chat/completions'
+        else:raise ProviderError('unsupported wire protocol')
+        encoded=json.dumps(body).encode();headers=self._headers()
+        rid=self.ledger.reserve(self.name,self.model,len(encoded),max_output_tokens)
+        request=urllib.request.Request(self.url+endpoint,encoded,headers)
+        start=time.monotonic()
+        try:
+            with urllib.request.build_opener(NoRedirect()).open(request,timeout=p.timeout_seconds) as response:
+                raw=response.read(4*1024*1024+1)
+                if len(raw)&gt;4*1024*1024:raise ProviderError('provider response too large')
+                data=json.loads(raw)
+        except urllib.error.HTTPError as exc:
+            classification='unclassified'
+            try:
+                code=json.loads(exc.read(65536)).get('error',{}).get('code')
+                if code in ('insufficient_quota','rate_limit_exceeded','invalid_api_key','model_not_found','billing_hard_limit_reached'):classification=code
+            except (ValueError,AttributeError):pass
+            self.ledger.finish(rid,'http_error',{'http_status':exc.code,'classification':classification})
+            # Never include response bodies, which might echo credentials or sensitive requests.
+&gt;           raise ProviderError(f'{self.name} returned HTTP {exc.code} ({classification}); no automatic retry') from None
+E           coc.providers.ProviderError: openai returned HTTP 429 (unclassified); no automatic retry
+
+kernels\python\src\coc\providers.py:128: ProviderError</failure></testcase></testsuite></testsuites>

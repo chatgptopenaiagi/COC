@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "transport": "documented Unix socket / WebSocket",
+  "new_codex_process": false,
+  "logical_threads_created": 1,
+  "thread_id": "01a1f302-f131-71b1-86e3-87996f32fab8",
+  "disconnect_reconnect_resume": true,
+  "conversation_replayed": false,
+  "active_turn_recovery": "NOT TESTED; only completed-turn reattachment",
+  "external_server_survived_detach": true
+}

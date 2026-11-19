@@ -1,0 +1,123 @@
+{
+  "browser": "real Chromium/Edge",
+  "real_broker": true,
+  "scientific_result": 20,
+  "browser_host_result": "REAL BROWSER",
+  "credential_persisted": false,
+  "desktop": [
+    1440,
+    1080
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "page_errors": [],
+  "live_chat": {
+    "app_server_pid": null,
+    "elapsed_seconds": 8.579502300002787,
+    "events": [
+      {
+        "item_id": "01a1f302-f8a1-7ad0-a754-55a3486f8f64",
+        "item_type": "userMessage",
+        "method": "item/completed"
+      },
+      {
+        "item_id": "msg_0a6f407787c945b4016afeb916250487d2bf53f3970fa53328",
+        "item_type": "agentMessage",
+        "method": "item/completed"
+      },
+      {
+        "item_id": "exec-626b7836-cedd-4e26-85aa-6fa94a27ff8c",
+        "item_type": "dynamicToolCall",
+        "method": "item/completed"
+      },
+      {
+        "item_id": "exec-583f4827-c297-46d9-84ed-19b667825c46",
+        "item_type": "dynamicToolCall",
+        "method": "item/completed"
+      },
+      {
+        "item_id": "msg_0a6f407787c945b4016afeb91aa76087d2beaf210b8dee8148",
+        "item_type": "agentMessage",
+        "method": "item/completed"
+      }
+    ],
+    "process_ownership": "external",
+    "status": "completed",
+    "text": "I’ll run both application tools and report their returned results.\n\nBoth tools succeeded:\n\n- `python-science statistics` returned mean **8**.\n- `javascript-web text_metrics` returned word count **3**.",
+    "thread_id": "01a1f302-f131-71b1-86e3-87996f32fab8",
+    "tool_results": [
+      {
+        "error": null,
+        "parent_task_id": "eaeba928e005928e2c39b16c9d22374c",
+        "receipt": {
+          "at": 1795078424425,
+          "attempt": 1,
+          "claim_id": "86fe6424e4c6fa8d9adafe81092fcfcb",
+          "executor": "python-host",
+          "host_id": "python-science",
+          "id": "26adde0ab9fc017a3b067051966257f3",
+          "input_digest": "85aedb8fa0a2b3a621c3a25f18b7cc9bead7c524c90a0d19ac2b56b14e9ff72d",
+          "outcome": "succeeded",
+          "output_digest": "290b95b77300b7b67e889cc402d55e5936df1fc0a3b3fa5b0b4a9d8c2152b681",
+          "task_id": "44cdf69e69bc6cb65ebe8a2cc8cce64f",
+          "tool": "statistics",
+          "verification": "executor-reported; output schema validated; semantic verification is separate"
+        },
+        "result": {
+          "count": 3,
+          "mean": 8,
+          "sum": 24
+        },
+        "state": "succeeded",
+        "task_id": "44cdf69e69bc6cb65ebe8a2cc8cce64f"
+      },
+      {
+        "error": null,
+        "parent_task_id": "eaeba928e005928e2c39b16c9d22374c",
+        "receipt": {
+          "at": 1795078424623,
+          "attempt": 1,
+          "claim_id": "c9ed92d5c70f1c8c1f3ef5d7ff0f07ea",
+          "executor": "javascript-host",
+          "host_id": "javascript-web",
+          "id": "a68ff84e3152e940dde37712cf2e95df",
+          "input_digest": "896ba9f072a3c82739f287cf96477fc5fa954f71eb4fb16a1d5839ee2a7d9918",
+          "outcome": "succeeded",
+          "output_digest": "f694c6f99772bb9b198969fa22f7a94fa33846a2965fd9d137eb923dc528d07a",
+          "task_id": "6c4f9c01a50fa4e847f38140ab61fd71",
+          "tool": "text_metrics",
+          "verification": "executor-reported; output schema validated; semantic verification is separate"
+        },
+        "result": {
+          "characters": 28,
+          "words": 3
+        },
+        "state": "succeeded",
+        "task_id": "6c4f9c01a50fa4e847f38140ab61fd71"
+      }
+    ],
+    "turn_id": "01a1f302-f250-7d91-82bf-17a387f8d5a2",
+    "usage": {
+      "last": {
+        "cacheWriteInputTokens": 0,
+        "cachedInputTokens": 15488,
+        "inputTokens": 16266,
+        "outputTokens": 35,
+        "reasoningOutputTokens": 0,
+        "totalTokens": 16301
+      },
+      "modelContextWindow": 258400,
+      "total": {
+        "cacheWriteInputTokens": 0,
+        "cachedInputTokens": 15488,
+        "inputTokens": 31739,
+        "outputTokens": 140,
+        "reasoningOutputTokens": 0,
+        "totalTokens": 31879
+      }
+    },
+    "usage_tokens": 31879
+  }
+}

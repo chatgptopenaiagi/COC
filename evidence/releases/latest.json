@@ -1,0 +1,50 @@
+{
+  "version": "0.1.0-alpha.1",
+  "archive": "dist/packages/COC-0.1.0-alpha.1-windows-x64-20261119T091627Z.zip",
+  "sha256": "6330b0bc3f3370c4ea07a769ff7e7debe2e307121161d487374c28b56a9150a6",
+  "bytes": 30232900,
+  "files": 537,
+  "package_directory": "dist/packages/COC-0.1.0-alpha.1-windows-x64-20261119T091627Z",
+  "independent_execution": "PASS",
+  "verified_tasks": [
+    {
+      "host": "python-science",
+      "task_id": "de3262b01509f7772bbf7a6d5c4c882d",
+      "result": {
+        "count": 2,
+        "mean": 3,
+        "sum": 6
+      },
+      "receipt_id": "67678392db1c01597e850c83a4e3c70e"
+    },
+    {
+      "host": "java-enterprise",
+      "task_id": "d527092340b0d78bd1c0723e7746564c",
+      "result": {
+        "invoice_id": "d527092340b0d78bd1c0723e7746564c",
+        "total": "7.00"
+      },
+      "receipt_id": "9594d4a4602e89382ae13e4ffe32b237"
+    },
+    {
+      "host": "javascript-web",
+      "task_id": "727202b437ceb8e1e0a02812a95df5e1",
+      "result": {
+        "characters": 13,
+        "words": 2
+      },
+      "receipt_id": "9c6425a06909329e0fc871cd1febe529"
+    },
+    {
+      "host": "rust-native",
+      "task_id": "d724ae74677e7d91ddb9d5da9a2e2595",
+      "result": {
+        "pid": 37260,
+        "sum": 11
+      },
+      "receipt_id": "53c3a9a6d8d2feba64da57c3b2760b2b"
+    }
+  ],
+  "wheel_installed_offline": true,
+  "manifest_hashes_verified": 537
+}

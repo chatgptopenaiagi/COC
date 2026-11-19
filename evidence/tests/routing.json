@@ -1,0 +1,6 @@
+{
+  "samples": 30,
+  "p50_ms": 1.5403000033984426,
+  "p95_ms": 2.3214000029838644,
+  "includes": "Python schema validation + HTTP + broker validation"
+}

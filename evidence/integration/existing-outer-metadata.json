@@ -1,0 +1,24 @@
+{
+  "probe": "read-only metadata; no inference or new process",
+  "endpoints": [
+    {
+      "transport": "unix-websocket",
+      "exists": true,
+      "authentication": "current OS user / socket permissions; not probed",
+      "thread_access": "requires explicitly authorized thread and workspace",
+      "automatic_attach": false
+    }
+  ],
+  "result": {
+    "status": "PASS",
+    "thread_prefix": "01a1f2c8",
+    "state": {
+      "type": "active",
+      "activeFlags": []
+    },
+    "workspace_match": true,
+    "new_process_started": false,
+    "conversation_read": false,
+    "instruction_submitted": false
+  }
+}

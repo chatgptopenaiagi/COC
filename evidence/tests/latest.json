@@ -1,0 +1,27 @@
+[
+  {
+    "suite": "go",
+    "status": "PASS",
+    "exit_code": 0
+  },
+  {
+    "suite": "rust",
+    "status": "PASS",
+    "exit_code": 0
+  },
+  {
+    "suite": "javascript-typescript",
+    "status": "PASS",
+    "exit_code": 0
+  },
+  {
+    "suite": "java",
+    "status": "PASS",
+    "exit_code": 0
+  },
+  {
+    "suite": "python-all",
+    "status": "PASS",
+    "exit_code": 0
+  }
+]

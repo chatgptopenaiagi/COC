@@ -1,0 +1,10 @@
+{
+  "cases": 21,
+  "implementations": [
+    "python",
+    "rust",
+    "typescript",
+    "java"
+  ],
+  "passed": true
+}

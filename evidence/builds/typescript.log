@@ -1,0 +1,6 @@
+npm notice run coc-workspace@0.1.0-alpha.1 build
+npm notice run node scripts/generate-contracts.mjs && tsc -p sdk/typescript/tsconfig.json && esbuild applications/operator-panel/src/main.ts --bundle --format=esm --outfile=applications/operator-panel/app.js
+
+  applications\operator-panel\app.js  61.2kb
+
+Done in 47ms

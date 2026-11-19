@@ -1,0 +1,15 @@
+use coc_native::{Client,OwnedProcess,validate};
+use serde_json::{json,Value};
+use std::{env,io::{self,BufRead,Read,Write},thread,time::Duration};
+fn main(){if let Err(e)=run(){eprintln!("COC native: {e}");std::process::exit(1)}}
+fn run()->Result<(),String>{
+ let args:Vec<String>=env::args().collect();let mode=args.get(1).map(String::as_str).unwrap_or("identity");
+ if mode=="identity"{println!("{}",json!({"pid":std::process::id(),"os":env::consts::OS,"arch":env::consts::ARCH}));return Ok(())}
+ if mode=="supervise"{if args.len()<4{return Err("supervise <timeout-ms> <executable> [args]".into())};let ms=args[2].parse::<u64>().map_err(|_|"invalid timeout")?;if ms>120000{return Err("maximum supervision timeout is 120000 ms".into())};let mut child=OwnedProcess::spawn(&args[3],&args[4..]).map_err(|e|e.to_string())?;let pid=child.pid();let success=child.wait_bounded(Duration::from_millis(ms)).map_err(|e|e.to_string())?;println!("{}",json!({"child_pid":pid,"success":success,"reaped":true}));return Ok(())}
+ if mode=="validate"{for line in io::stdin().lock().lines(){let line=line.map_err(|e|e.to_string())?;let valid=serde_json::from_str::<Value>(&line).ok().map(|v|validate(&v).is_ok()).unwrap_or(false);println!("{}",json!({"valid":valid}));}return Ok(())}
+ let client=Client::new(env::var("COC_URL").unwrap_or("http://127.0.0.1:7310".into()),env::var("COC_TOKEN").map_err(|_|"COC_TOKEN required")?,env::var("COC_AGENT").unwrap_or("native".into()))?;
+ if mode=="bridge"{let mut input=io::stdin().lock();loop{let mut bytes=Vec::new();let count=std::io::Read::by_ref(&mut input).take(1_048_577).read_until(b'\n',&mut bytes).map_err(|e|e.to_string())?;if count==0{break};if bytes.len()>1_048_576{return Err("message too large".into())};let req:Value=serde_json::from_slice(&bytes).map_err(|_|"invalid JSON")?;let response=client.forward(&req)?;println!("{response}");io::stdout().flush().map_err(|e|e.to_string())?;}return Ok(())}
+ if mode!="host"{return Err("supported modes: identity, validate, bridge, host, supervise".into())}
+ let host="rust-native";client.call("COC.REGISTER",json!({"kind":"host","id":host,"name":"Rust native application","language":"rust","capabilities":[{"name":"sum","description":"Native sum with process identity","version":"1.0","idempotent":true,"cancellable":false,"input_schema":{"type":"object","required":["values"],"properties":{"values":{"type":"array","items":{"type":"number"},"maxItems":10000}},"additionalProperties":false},"output_schema":{"type":"object","required":["sum","pid"],"properties":{"sum":{"type":"number"},"pid":{"type":"integer"}}}}]}))?;
+ loop{let claim=client.call("COC.RECOVER",json!({"action":"claim","host_id":host}))?;let task=&claim["task"];if task.is_null(){thread::sleep(Duration::from_millis(100));continue};let values=task["arguments"]["values"].as_array().ok_or("values required")?;let sum:f64=values.iter().map(|v|v.as_f64().unwrap_or(0.0)).sum();client.call("COC.TOOL_RESULT",json!({"task_id":task["id"],"claim_id":task["claim_id"],"outcome":"succeeded","result":{"sum":sum,"pid":std::process::id()}}))?;}
+}

@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.png binary
+# Execution artifacts retain exact captured bytes, including diagnostic whitespace.
+evidence/** -text -whitespace

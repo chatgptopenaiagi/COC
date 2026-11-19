@@ -1,0 +1,61 @@
+{
+  "source": "protected DRAGONHYDRA reference; read-only inspection",
+  "files": [
+    {
+      "path": "application/living/codex_bridge.py",
+      "bytes": 8950,
+      "sha256": "948fdb260ca67be7d7613dad32a28bcf9fa2ae70f2cdee091f0f10bf7ba5780a"
+    },
+    {
+      "path": "application/living/server.py",
+      "bytes": 19390,
+      "sha256": "584ba4fc537b735c2eae0ef7967cbbc3dc2b9af4d8e12e6dea267485649c12ad"
+    },
+    {
+      "path": "application/living/web/cockpit.js",
+      "bytes": 23577,
+      "sha256": "8b3ed78ba95ed6eb3c06ed387008079c4985590351ee9d7d6dcea318d50472d9"
+    },
+    {
+      "path": "tests/mission006_operator_live.py",
+      "bytes": 6915,
+      "sha256": "8c5f9cb76606fecd7f7a13e761cd6cc28ef6b16b441af845e102fd1a7f35cf7e"
+    },
+    {
+      "path": "tests/test_mission006_cockpit.py",
+      "bytes": 14052,
+      "sha256": "a23e9f6d195829a74b40455c93f062955d1f75f26289f92f1a83c7b373606ce4"
+    },
+    {
+      "path": "evidence/mission-006/operator-live-20261119T080121Z/job.json",
+      "bytes": 713,
+      "sha256": "6425628b1badf6d464bd165508f0d752c1af394851c8e39c1a604cc6d0c5682d"
+    },
+    {
+      "path": "evidence/mission-006/operator-live-20261119T080121Z/results.json",
+      "bytes": 3469,
+      "sha256": "496304b39812818b47932f37ab15b598d0b1fd7532e7ffce07848f2a881901f6"
+    },
+    {
+      "path": "evidence/mission-006/engineering-jobs/f6cf4e7457ee4155b1fbe28e7841cee8.result.json",
+      "bytes": 497,
+      "sha256": "a7b226d9052a57d7a40e95e3f0cc27a80d40963cbdc8bb799c1d278aec8309e0"
+    },
+    {
+      "path": "evidence/mission-006/cockpit-unit-retest.log",
+      "bytes": 2999,
+      "sha256": "83785a1a5f503fc60583903231c58dca3421d1c35401a1e120251476b9562c9f"
+    }
+  ],
+  "request_receipt_job_identity_matches": true,
+  "job_prefix": "f6cf4e74",
+  "thread_prefix": "01a1f09d",
+  "test_count_verified_from_log": 21,
+  "unit_suite_seconds": 33.395,
+  "result": "OK",
+  "receipt_status": "PASS",
+  "actual_process_pid": "NOT RECORDED",
+  "no_new_worker_claim": "SUPPORTED BUT INCOMPLETE",
+  "new_tests_run_in_reference": false,
+  "reference_modified_by_audit": false
+}

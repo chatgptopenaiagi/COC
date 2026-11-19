@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="8.867" timestamp="2026-11-19T10:01:17.113368+01:00" hostname="DESKTOP-44UK3UB"><testcase classname="tests.integration.test_codex_cancel" name="test_real_codex_cancellation_through_host_task" time="8.771" /></testsuite></testsuites>

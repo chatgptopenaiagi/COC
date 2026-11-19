@@ -1,0 +1,46 @@
+{
+  "mode": "LIVE OpenAI API diagnostic",
+  "authentication_probe": {
+    "status": "authenticated",
+    "configured_model_listed": true
+  },
+  "inference": {
+    "status": "failed",
+    "error": "openai returned HTTP 429 (quota_or_billing); no automatic retry"
+  },
+  "requests": [
+    {
+      "id": "03d26e1f782f4bc2af930ed7cbe8817a",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "state": "http_error",
+      "reserved_tokens": 1108,
+      "reserved_usd": null,
+      "usage": "{\"http_status\": 429}",
+      "started": 1795077403.42302,
+      "finished": 1795077411.5435646
+    },
+    {
+      "id": "af7f158bcc2d4aaf86a53aca0a252446",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "state": "http_error",
+      "reserved_tokens": 1108,
+      "reserved_usd": null,
+      "usage": "{\"http_status\": 429, \"classification\": \"unclassified\"}",
+      "started": 1795077519.223619,
+      "finished": 1795077525.3740177
+    },
+    {
+      "id": "138e3acb666043c3adcb160005fd1d2f",
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "state": "http_error",
+      "reserved_tokens": 622,
+      "reserved_usd": null,
+      "usage": "{\"http_status\": 429, \"classification\": \"quota_or_billing\"}",
+      "started": 1795077842.94418,
+      "finished": 1795077849.576489
+    }
+  ]
+}
