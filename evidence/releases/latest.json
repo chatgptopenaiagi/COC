@@ -1,50 +1,51 @@
 {
   "version": "0.1.0-alpha.1",
-  "archive": "dist/packages/COC-0.1.0-alpha.1-windows-x64-20261119T091627Z.zip",
-  "sha256": "6330b0bc3f3370c4ea07a769ff7e7debe2e307121161d487374c28b56a9150a6",
-  "bytes": 30232900,
-  "files": 537,
-  "package_directory": "dist/packages/COC-0.1.0-alpha.1-windows-x64-20261119T091627Z",
+  "archive": "dist/packages/COC-0.1.0-alpha.1-windows-x64-20261119T091908Z.zip",
+  "sha256": "2195a633e5692fe85fb67b05fffe153342d90a75ace190d89f48164b85ea23c5",
+  "bytes": 30234775,
+  "files": 539,
+  "package_directory": "dist/packages/COC-0.1.0-alpha.1-windows-x64-20261119T091908Z",
   "independent_execution": "PASS",
   "verified_tasks": [
     {
       "host": "python-science",
-      "task_id": "de3262b01509f7772bbf7a6d5c4c882d",
+      "task_id": "e1ff147eecf5ed4e88648a55c0d5ebab",
       "result": {
         "count": 2,
         "mean": 3,
         "sum": 6
       },
-      "receipt_id": "67678392db1c01597e850c83a4e3c70e"
+      "receipt_id": "8d836eecca9cdbbf68f2e6b5854b783b"
     },
     {
       "host": "java-enterprise",
-      "task_id": "d527092340b0d78bd1c0723e7746564c",
+      "task_id": "c7b09f292626cf9543335f42294c1e18",
       "result": {
-        "invoice_id": "d527092340b0d78bd1c0723e7746564c",
+        "invoice_id": "c7b09f292626cf9543335f42294c1e18",
         "total": "7.00"
       },
-      "receipt_id": "9594d4a4602e89382ae13e4ffe32b237"
+      "receipt_id": "16b023fbd368e704032d8440fb3c1042"
     },
     {
       "host": "javascript-web",
-      "task_id": "727202b437ceb8e1e0a02812a95df5e1",
+      "task_id": "3ea6577342859c7a7858cb0ca541bc00",
       "result": {
         "characters": 13,
         "words": 2
       },
-      "receipt_id": "9c6425a06909329e0fc871cd1febe529"
+      "receipt_id": "7b86dabb64786337abe05ed46d440926"
     },
     {
       "host": "rust-native",
-      "task_id": "d724ae74677e7d91ddb9d5da9a2e2595",
+      "task_id": "57e75d9cea864fcb72dd02f18e38994b",
       "result": {
-        "pid": 37260,
+        "pid": 36648,
         "sum": 11
       },
-      "receipt_id": "53c3a9a6d8d2feba64da57c3b2760b2b"
+      "receipt_id": "74188abf1d729190f7681230a76b11ab"
     }
   ],
   "wheel_installed_offline": true,
-  "manifest_hashes_verified": 537
+  "fresh_cli_install": "PASS",
+  "manifest_hashes_verified": 539
 }

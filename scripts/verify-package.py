@@ -17,10 +17,9 @@ with zipfile.ZipFile(archive) as z:
     z.extractall(destination)
 package=next(destination.iterdir());manifest=json.loads((package/'RELEASE-MANIFEST.json').read_text())
 for item in manifest['files']:assert hashlib.sha256((package/item['path']).read_bytes()).hexdigest()==item['sha256']
-subprocess.run([sys.executable,'-m','venv',str(package/'.venv')],check=True,capture_output=True)
 python=package/('.venv/Scripts/python.exe' if os.name=='nt' else '.venv/bin/python')
-wheel=next((package/'dist/python').glob('*.whl'))
-subprocess.run([str(python),'-m','pip','install','--no-index','--find-links',str(package/'dist/wheelhouse'),str(wheel)],check=True,capture_output=True)
+installed=subprocess.run(['pwsh','-NoProfile','-File',str(package/'COC.ps1'),'INSTALL'],cwd=package,capture_output=True,text=True,timeout=120)
+if installed.returncode:raise RuntimeError('fresh package INSTALL failed: '+installed.stderr[-1500:])
 env=os.environ.copy();env.pop('PYTHONPATH',None)
 def control(command,*extra):
     completed=subprocess.run([str(python),'-m','coc.control',command,'--root',str(package),*extra],cwd=package,env=env,capture_output=True,text=True,timeout=60)
@@ -42,6 +41,6 @@ try:
         assert task['state']=='succeeded' and task['result'][key]==expected
         results.append({'host':host,'task_id':task['id'],'result':task['result'],'receipt_id':task['receipt']['id']})
     assert client.call('COC.DISCOVER',{'view':'system'})['integrity_verified']
-    record['independent_execution']='PASS';record['verified_tasks']=results;record['wheel_installed_offline']=True;record['manifest_hashes_verified']=len(manifest['files'])
+    record['independent_execution']='PASS';record['verified_tasks']=results;record['wheel_installed_offline']=True;record['fresh_cli_install']='PASS';record['manifest_hashes_verified']=len(manifest['files'])
 finally:control('stop')
 (root/'evidence/releases/latest.json').write_text(json.dumps(record,indent=2));print(json.dumps({'independent_package':'PASS','hosts':len(results),'sha256':record['sha256']}))

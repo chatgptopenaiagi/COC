@@ -21,7 +21,7 @@ files=subprocess.check_output(['git','ls-files','--cached','--others','--exclude
 for raw in files.split(b'\0'):
     if not raw:continue
     path=raw.decode()
-    if path.startswith('.github/') or path=='scripts/audit-reference.py':continue
+    if path.startswith(('.github/','evidence/releases/')) or path=='scripts/audit-reference.py':continue
     copy(root/path,path)
 binary='coc-broker.exe' if os.name=='nt' else 'coc-broker';native='coc-native.exe' if os.name=='nt' else 'coc-native';library='coc_native.dll' if os.name=='nt' else 'libcoc_native.so'
 copy(root/'dist'/binary,'dist/'+binary)
@@ -29,8 +29,8 @@ for name in (native,library):copy(root/'kernels/rust/target/release'/name,'dist/
 copy(root/'sdk/java/build/coc-java-sdk.jar','sdk/java/build/coc-java-sdk.jar')
 for jar in (root/'.tools/java').glob('*.jar'):copy(jar,'sdk/java/dependencies/'+jar.name)
 wheel=max((root/'dist/python').glob('*.whl'),key=lambda p:p.stat().st_mtime);copy(wheel,'dist/python/'+wheel.name)
-if (root/'dist/wheelhouse').is_dir():
-    for dependency in (root/'dist/wheelhouse').glob('*.whl'):copy(dependency,'dist/wheelhouse/'+dependency.name)
+if not (root/'dist/wheelhouse').is_dir():raise SystemExit('offline wheelhouse must be populated before packaging')
+for dependency in (root/'dist/wheelhouse').glob('*.whl'):copy(dependency,'dist/wheelhouse/'+dependency.name)
 dependency=root/'node_modules/@cfworker/json-schema'
 shutil.copytree(dependency,directory/'node_modules/@cfworker/json-schema')
 # Preserve distributable third-party notices from actual resolved dependency trees.
@@ -51,8 +51,6 @@ manifest={'project':'COC','version':version,'platform':platform,'built_at':stamp
 for path in sorted(directory.rglob('*')):
     if path.is_file():manifest['files'].append({'path':path.relative_to(directory).as_posix(),'bytes':path.stat().st_size,'sha256':hashlib.sha256(path.read_bytes()).hexdigest()})
 (directory/'RELEASE-MANIFEST.json').write_text(json.dumps(manifest,indent=2))
-archive=directory.with_suffix('.zip')
-# with_suffix would truncate the alpha version suffix: use explicit full name.
 archive=directory.parent/(directory.name+'.zip')
 with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=6) as z:
     for path in directory.rglob('*'):
