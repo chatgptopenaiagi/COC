@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "url": "https://github.com/chatgptopenaiagi/COC/releases/tag/v0.1.0-alpha.2",
+  "version": "0.1.0-alpha.2",
+  "sha256": "0eb367fe9adb504a0a74886353d9f90ef93b3b195dfeec086feaab3c6495130d",
+  "downloaded_archive_verified": true,
+  "credential_scan": "PASS",
+  "production_ready": false,
+  "ci_run": "https://github.com/chatgptopenaiagi/COC/actions/runs/44497351662",
+  "tested_code_commit": "7c565b182dc862d2e40c0d42415330d16344fcfe",
+  "tagged_commit": "5b29514e8e2e50f8d52bd09a49352c154bbd4acc",
+  "differences_from_tested_commit": "Documentation and execution evidence only"
+}
