@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "run_url": "https://github.com/chatgptopenaiagi/COC/actions/runs/44495163522",
+  "commit": "e6751de11078594a2099e8a5c1ecb69d63c45a8b",
+  "stage": "Java build",
+  "reason": "PowerShell native wildcard expansion split the classpath into multiple arguments on Linux; javac rejected the second JAR as an invalid flag.",
+  "linux_tests_executed": false,
+  "retained_windows_reports_are_not_linux_results": true,
+  "fix": "Use an explicit platform-separated list of JAR paths instead of a wildcard."
+}

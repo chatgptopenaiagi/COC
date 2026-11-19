@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "files_scanned": 163,
+  "files_scanned": 164,
   "failures": [],
   "actual_key_compared_in_memory": true,
   "key_value_logged": false
