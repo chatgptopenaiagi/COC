@@ -1,51 +1,51 @@
 {
-  "version": "0.1.0-alpha.1",
-  "archive": "dist/packages/COC-0.1.0-alpha.1-windows-x64-20261119T091908Z.zip",
-  "sha256": "2195a633e5692fe85fb67b05fffe153342d90a75ace190d89f48164b85ea23c5",
-  "bytes": 30234775,
-  "files": 539,
-  "package_directory": "dist/packages/COC-0.1.0-alpha.1-windows-x64-20261119T091908Z",
+  "version": "0.1.0-alpha.2",
+  "archive": "dist/packages/COC-0.1.0-alpha.2-windows-x64-20261119T093228Z.zip",
+  "sha256": "0eb367fe9adb504a0a74886353d9f90ef93b3b195dfeec086feaab3c6495130d",
+  "bytes": 30240336,
+  "files": 541,
+  "package_directory": "dist/packages/COC-0.1.0-alpha.2-windows-x64-20261119T093228Z",
   "independent_execution": "PASS",
   "verified_tasks": [
     {
       "host": "python-science",
-      "task_id": "e1ff147eecf5ed4e88648a55c0d5ebab",
+      "task_id": "3c06815c48f22c8099569c07d2350e92",
       "result": {
         "count": 2,
         "mean": 3,
         "sum": 6
       },
-      "receipt_id": "8d836eecca9cdbbf68f2e6b5854b783b"
+      "receipt_id": "3c6695509e768f029140788b75b75c7a"
     },
     {
       "host": "java-enterprise",
-      "task_id": "c7b09f292626cf9543335f42294c1e18",
+      "task_id": "5241410495e4caa60c8a57006173e508",
       "result": {
-        "invoice_id": "c7b09f292626cf9543335f42294c1e18",
+        "invoice_id": "5241410495e4caa60c8a57006173e508",
         "total": "7.00"
       },
-      "receipt_id": "16b023fbd368e704032d8440fb3c1042"
+      "receipt_id": "d9f35432787fed4827da9101e38b4521"
     },
     {
       "host": "javascript-web",
-      "task_id": "3ea6577342859c7a7858cb0ca541bc00",
+      "task_id": "5a7393f5a4e119323af1a9f489752f91",
       "result": {
         "characters": 13,
         "words": 2
       },
-      "receipt_id": "7b86dabb64786337abe05ed46d440926"
+      "receipt_id": "1b1be5b004ffe3d532f64704f3679bd5"
     },
     {
       "host": "rust-native",
-      "task_id": "57e75d9cea864fcb72dd02f18e38994b",
+      "task_id": "15b8259602c2a574ad42fb8bf2130d85",
       "result": {
-        "pid": 36648,
+        "pid": 33776,
         "sum": 11
       },
-      "receipt_id": "74188abf1d729190f7681230a76b11ab"
+      "receipt_id": "168d156ee5f466092fdbd3d7dffd34a7"
     }
   ],
   "wheel_installed_offline": true,
   "fresh_cli_install": "PASS",
-  "manifest_hashes_verified": 539
+  "manifest_hashes_verified": 541
 }

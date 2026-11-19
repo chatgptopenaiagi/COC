@@ -24,7 +24,7 @@ The local engine is executable; the full universal-engine mission remains open.
 | Existing llama.cpp inference | BLOCKED | Endpoint requires separately authorized credential |
 | Other provider adapters | NOT TESTED live | Implemented abstractions, no access assumed |
 | Android runtime/demo | NOT TESTED | SDK unavailable; desktop Codex is not an Android runtime |
-| Linux runtime | See separate CI evidence | No local Linux execution environment |
+| Linux runtime | PASS in GitHub CI | evidence/platforms/linux/summary.json |
 | Package extraction / publication | See release receipt | evidence/releases/latest.json is authoritative |
 
 The complete default Python regression contains 30 cases: 25 passed and five

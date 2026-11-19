@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "platform": "Linux GitHub runner",
+  "run_url": "https://github.com/chatgptopenaiagi/COC/actions/runs/44497351662",
+  "verified_commit": "7c565b182dc862d2e40c0d42415330d16344fcfe",
+  "builds": [
+    {
+      "component": "go",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.8162013
+    },
+    {
+      "component": "rust",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 24.4203512
+    },
+    {
+      "component": "rust-release",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 44.3042085
+    },
+    {
+      "component": "typescript",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 1.4063863
+    },
+    {
+      "component": "java",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 4.3621065
+    },
+    {
+      "component": "python",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 2.8320784
+    },
+    {
+      "component": "django",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 1.8339293
+    }
+  ],
+  "python_regression": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "5",
+    "tests": "30",
+    "time": "31.101",
+    "timestamp": "2026-11-19T03:35:44.101869-06:00",
+    "hostname": "runnervmccnms"
+  },
+  "junit_sha256": "5ae4652288897bbf9dc6371fbaca9223667dda3f5cda3b5e36d52090ae5ea6e8",
+  "live_inference_rerun": false
+}

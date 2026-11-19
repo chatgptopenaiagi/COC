@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "one_use_login": true,
+  "fragment_cleared": true,
+  "token_field_empty": true,
+  "live_hosts": 5,
+  "persisted_tasks": 4,
+  "errors": []
+}

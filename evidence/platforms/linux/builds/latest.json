@@ -1,0 +1,44 @@
+[
+  {
+    "component": "go",
+    "status": "PASS",
+    "exit_code": 0,
+    "seconds": 0.8162013
+  },
+  {
+    "component": "rust",
+    "status": "PASS",
+    "exit_code": 0,
+    "seconds": 24.4203512
+  },
+  {
+    "component": "rust-release",
+    "status": "PASS",
+    "exit_code": 0,
+    "seconds": 44.3042085
+  },
+  {
+    "component": "typescript",
+    "status": "PASS",
+    "exit_code": 0,
+    "seconds": 1.4063863
+  },
+  {
+    "component": "java",
+    "status": "PASS",
+    "exit_code": 0,
+    "seconds": 4.3621065
+  },
+  {
+    "component": "python",
+    "status": "PASS",
+    "exit_code": 0,
+    "seconds": 2.8320784
+  },
+  {
+    "component": "django",
+    "status": "PASS",
+    "exit_code": 0,
+    "seconds": 1.8339293
+  }
+]

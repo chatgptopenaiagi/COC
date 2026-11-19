@@ -1,0 +1,52 @@
+{
+  "recovered_task": {
+    "id": "01b82361ec859727958a8b4e1b9fe0c1",
+    "root_id": "01b82361ec859727958a8b4e1b9fe0c1",
+    "owner": "operator",
+    "host_id": "python-science",
+    "tool": "cooperative_wait",
+    "arguments": {
+      "seconds": 2
+    },
+    "result": {
+      "elapsed": 2
+    },
+    "state": "succeeded",
+    "depth": 0,
+    "budget": {
+      "max_depth": 2,
+      "max_tasks": 16,
+      "max_concurrent": 4,
+      "token_limit": 8192,
+      "reserved_tokens": 0,
+      "used_tokens": 0
+    },
+    "scopes": [
+      "*"
+    ],
+    "created": 1795080952883,
+    "updated": 1795080956041,
+    "deadline": 1795081072883,
+    "lease_until": 0,
+    "claim_id": "26f3529731dce9ec9b21e9dc5e5f146f",
+    "attempt": 2,
+    "idempotency_key": "51005a72a8dd483e8731a06c9d6ecd74",
+    "fingerprint": "231196b361a8093b16cae742f4a307fd62b0a379add3be2d90c54788139bb1d5",
+    "receipt": {
+      "id": "82ea4148898c0a18ad000a4bc5adb92d",
+      "task_id": "01b82361ec859727958a8b4e1b9fe0c1",
+      "executor": "python-host",
+      "host_id": "python-science",
+      "tool": "cooperative_wait",
+      "attempt": 2,
+      "claim_id": "26f3529731dce9ec9b21e9dc5e5f146f",
+      "input_digest": "10189b390681fcc635b6bf6c55614f4b6989fa2e29cf27e2944d8a9acca3ab96",
+      "output_digest": "8f3ae1d78f8e33b00d55a0757d97d3b1614a91cabfc013bdc36206e96e5f1edf",
+      "outcome": "succeeded",
+      "at": 1795080956041,
+      "verification": "executor-reported; output schema validated; semantic verification is separate"
+    }
+  },
+  "recovery_seconds": 3.130134211000012,
+  "lost_acknowledged_tasks": 0
+}

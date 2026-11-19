@@ -31,7 +31,7 @@ Evidence: [acceptance report](evidence/acceptance.json),
 ## Start on Windows
 
 Use PowerShell 7, Python 3.12+, Go 1.26+, Rust/Cargo with MSVC build tools,
-JDK 21+, Node 22+ and npm. Development was verified on Windows x64; exact
+JDK 21+, Node 22+ and npm. Development was verified on Windows x64 and Linux CI; exact
 versions and individual results are recorded in evidence. Codex is needed only
 for the Codex connector, and Django only for administration.
 

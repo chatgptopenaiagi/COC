@@ -39,3 +39,5 @@ This milestone includes explicit Java classpaths for Linux and initialization of
 the test workspace on clean checkouts. The earlier alpha.1 tag and draft are
 retained as engineering history; use this corrected milestone. Stop the local
 Windows demo before rebuilding because the JVM holds its JAR open.
+
+Linux build and default regression also passed on the alpha.2 source revision: [CI execution](https://github.com/chatgptopenaiagi/COC/actions/runs/44497351662). This release distributes Windows binaries; Linux results are build/runtime evidence, not a downloadable Linux package.
