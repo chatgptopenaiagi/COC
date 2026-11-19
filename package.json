@@ -1,7 +1,7 @@
 {
   "name": "coc-workspace",
   "private": true,
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "type": "module",
   "scripts": {
     "build": "node scripts/generate-contracts.mjs && tsc -p sdk/typescript/tsconfig.json && esbuild applications/operator-panel/src/main.ts --bundle --format=esm --outfile=applications/operator-panel/app.js",

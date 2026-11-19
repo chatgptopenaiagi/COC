@@ -14,7 +14,7 @@ class MCPBridge:
         if method=='initialize':
             if p.get('protocolVersion')!='2025-06-18':raise ValueError('supported protocol: 2025-06-18')
             self.initialized=True
-            return {'protocolVersion':'2025-06-18','capabilities':{'tools':{'listChanged':False}},'serverInfo':{'name':'coc','version':'0.1.0-alpha.1'}}
+            return {'protocolVersion':'2025-06-18','capabilities':{'tools':{'listChanged':False}},'serverInfo':{'name':'coc','version':'0.1.0-alpha.2'}}
         if not self.initialized:raise PermissionError('initialize first')
         if method=='ping':return {}
         if method=='tools/list':

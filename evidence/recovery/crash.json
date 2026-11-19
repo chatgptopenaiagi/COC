@@ -1,7 +1,7 @@
 {
   "recovered_task": {
-    "id": "710c7a63b2a67a0c861512f45b7e5af7",
-    "root_id": "710c7a63b2a67a0c861512f45b7e5af7",
+    "id": "6d53e7791d52326de81b8964214d18e5",
+    "root_id": "6d53e7791d52326de81b8964214d18e5",
     "owner": "operator",
     "host_id": "python-science",
     "tool": "cooperative_wait",
@@ -24,29 +24,29 @@
     "scopes": [
       "*"
     ],
-    "created": 1795079754787,
-    "updated": 1795079759181,
-    "deadline": 1795079874787,
+    "created": 1795080676894,
+    "updated": 1795080681589,
+    "deadline": 1795080796894,
     "lease_until": 0,
-    "claim_id": "08d37a2cad0dc17367b0395fb5bfcd10",
+    "claim_id": "9761e19212604f69080ddf876d98fe25",
     "attempt": 2,
-    "idempotency_key": "e16f902fb9474a6d88867b8e1b0ce1ce",
+    "idempotency_key": "fef4dfbc6bc54e65b78f3df37ac9e151",
     "fingerprint": "231196b361a8093b16cae742f4a307fd62b0a379add3be2d90c54788139bb1d5",
     "receipt": {
-      "id": "563256fe547ee3ef0c16cd79ff637229",
-      "task_id": "710c7a63b2a67a0c861512f45b7e5af7",
+      "id": "c8732509f322bd0f0a363743c8d3a058",
+      "task_id": "6d53e7791d52326de81b8964214d18e5",
       "executor": "python-host",
       "host_id": "python-science",
       "tool": "cooperative_wait",
       "attempt": 2,
-      "claim_id": "08d37a2cad0dc17367b0395fb5bfcd10",
+      "claim_id": "9761e19212604f69080ddf876d98fe25",
       "input_digest": "10189b390681fcc635b6bf6c55614f4b6989fa2e29cf27e2944d8a9acca3ab96",
       "output_digest": "8f3ae1d78f8e33b00d55a0757d97d3b1614a91cabfc013bdc36206e96e5f1edf",
       "outcome": "succeeded",
-      "at": 1795079759181,
+      "at": 1795080681589,
       "verification": "executor-reported; output schema validated; semantic verification is separate"
     }
   },
-  "recovery_seconds": 4.337395200003812,
+  "recovery_seconds": 4.592555499999435,
   "lost_acknowledged_tasks": 0
 }

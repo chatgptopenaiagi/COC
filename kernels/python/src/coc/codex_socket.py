@@ -59,7 +59,7 @@ class AttachedAppServer(AppServer):
         self.detached.clear();self.messages=queue.Queue(maxsize=10000);self.pending=[]
         self.reader=threading.Thread(target=self._read,daemon=True);self.reader.start()
         try:
-            self.initialized=self.request('initialize',{'clientInfo':{'name':'coc_attached_bridge','version':'0.1.0-alpha.1'},'capabilities':{'experimentalApi':True}})
+            self.initialized=self.request('initialize',{'clientInfo':{'name':'coc_attached_bridge','version':'0.1.0-alpha.2'},'capabilities':{'experimentalApi':True}})
             self.send({'method':'initialized','params':{}});return self
         except Exception:self.close();raise
     def _read(self):

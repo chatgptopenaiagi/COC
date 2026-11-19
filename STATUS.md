@@ -1,6 +1,6 @@
 # Mission 001 engineering ledger
 
-Last verified: 2026-11-19, Windows x64. Milestone: **0.1.0-alpha.1**.
+Last verified: 2026-11-19, Windows x64. Milestone: **0.1.0-alpha.2**.
 The local engine is executable; the full universal-engine mission remains open.
 
 | Area | Status | Execution evidence |

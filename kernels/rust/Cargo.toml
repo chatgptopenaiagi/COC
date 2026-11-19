@@ -1,6 +1,6 @@
 [package]
 name = "coc-native"
-version = "0.1.0-alpha.1"
+version = "0.1.0-alpha.2"
 edition = "2021"
 description = "COC native protocol boundary and supervised IPC bridge"
 license = "MIT"

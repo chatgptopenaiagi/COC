@@ -1,49 +1,49 @@
 {
-  "version": "0.1.0-alpha.1",
-  "generated_at": "2026-11-19T09:16:26.262106+00:00",
+  "version": "0.1.0-alpha.2",
+  "generated_at": "2026-11-19T09:31:49.541433+00:00",
   "production_ready": false,
   "builds": [
     {
       "component": "go",
       "status": "PASS",
       "exit_code": 0,
-      "seconds": 0.6447799
+      "seconds": 1.2767004
     },
     {
       "component": "rust",
       "status": "PASS",
       "exit_code": 0,
-      "seconds": 0.5773513
+      "seconds": 6.6268692
     },
     {
       "component": "rust-release",
       "status": "PASS",
       "exit_code": 0,
-      "seconds": 0.5025923
+      "seconds": 4.4378936
     },
     {
       "component": "typescript",
       "status": "PASS",
       "exit_code": 0,
-      "seconds": 1.7299182
+      "seconds": 1.5228562
     },
     {
       "component": "java",
       "status": "PASS",
       "exit_code": 0,
-      "seconds": 2.5942303
+      "seconds": 2.4239767
     },
     {
       "component": "python",
       "status": "PASS",
       "exit_code": 0,
-      "seconds": 13.753948
+      "seconds": 11.4142265
     },
     {
       "component": "django",
       "status": "PASS",
       "exit_code": 0,
-      "seconds": 3.5386041
+      "seconds": 3.2149043
     }
   ],
   "default_suites": [
@@ -82,7 +82,7 @@
       "skipped": 5
     },
     "evidence": "evidence/tests/full-regression.xml",
-    "sha256": "d00de82322ffb73f0a81bd54df1c8f0fed1756fd8db4110d8f87aac3e6dcc4fb"
+    "sha256": "81b7b323114fce8051586e478c3bbceb2cf44bd4c2764eff2b960013c764fc61"
   },
   "live_owned_codex": {
     "status": "PASS",
@@ -145,7 +145,7 @@
   "linux_runtime": "NOT TESTED locally; see separate GitHub Actions results",
   "publication_scan": {
     "status": "PASS",
-    "files_scanned": 160,
+    "files_scanned": 168,
     "failures": [],
     "actual_key_compared_in_memory": true,
     "key_value_logged": false

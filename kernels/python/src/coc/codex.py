@@ -41,7 +41,7 @@ class AppServer:
             stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,text=True,encoding='utf-8',bufsize=1,
             creationflags=subprocess.CREATE_NO_WINDOW if os.name=='nt' else 0)
         self.reader=threading.Thread(target=self._read,daemon=True);self.reader.start()
-        self.initialized=self.request('initialize',{'clientInfo':{'name':'coc_engine','title':'COC bridge','version':'0.1.0-alpha.1'},'capabilities':{'experimentalApi':True}},timeout=30)
+        self.initialized=self.request('initialize',{'clientInfo':{'name':'coc_engine','title':'COC bridge','version':'0.1.0-alpha.2'},'capabilities':{'experimentalApi':True}},timeout=30)
         self.send({'method':'initialized','params':{}})
         return self
     def _read(self):

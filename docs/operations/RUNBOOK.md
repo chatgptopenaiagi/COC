@@ -59,6 +59,9 @@ are separate from the broker's authoritative task storage.
 `VERIFY` builds all mandatory components, runs default suites, scans publication
 files and summarizes evidence. Nonzero failures stop execution. Five opt-in live
 tests are skipped by default and their earlier live evidence is reported separately.
+Stop the local demo runtime before BUILD/TEST/VERIFY on Windows: the running JVM
+holds its JAR open, so a rebuild cannot replace it. STOP preserves recorded tasks
+and does not terminate the independently owned Codex App Server.
 `PACKAGE` requires passing local acceptance and creates checksums and a manifest.
 `scripts/verify-package.py` verifies bytes, installs offline in a fresh extraction
 and executes four host languages against the packaged broker. Keep its release

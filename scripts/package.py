@@ -11,7 +11,7 @@ import zipfile
 root=Path(__file__).resolve().parents[1]
 acceptance=json.loads((root/'evidence/acceptance.json').read_text())
 if acceptance['local_core_acceptance']!='PASS':raise SystemExit('full local core acceptance must pass before packaging')
-version='0.1.0-alpha.1';stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+version='0.1.0-alpha.2';stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
 platform='windows-x64' if os.name=='nt' else 'linux-x64'
 directory=root/'dist/packages'/f'COC-{version}-{platform}-{stamp}'
 directory.mkdir(parents=True,exist_ok=False)

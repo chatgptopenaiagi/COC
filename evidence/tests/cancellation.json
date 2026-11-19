@@ -1,6 +1,6 @@
 {
-  "ack_seconds": 0.0025396999990334734,
-  "cooperative_stop_seconds": 0.3157089000014821,
-  "task_id": "ad91da93f872b35f89093b0fa326030a",
+  "ack_seconds": 0.003268499996920582,
+  "cooperative_stop_seconds": 0.3258090999952401,
+  "task_id": "c16887b8cb4dd007d1eb9550f48e80c5",
   "state": "cancelled"
 }

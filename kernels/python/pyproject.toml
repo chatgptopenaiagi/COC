@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "coc-engine"
-version = "0.1.0a1"
+version = "0.1.0a2"
 description = "COC protocol client, host adapters and bounded AI orchestration"
 requires-python = ">=3.11"
 dependencies = ["jsonschema>=4.23,<5", "rfc3339-validator>=0.1.4", "psutil>=6", "websocket-client==1.9.0"]

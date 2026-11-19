@@ -14,7 +14,7 @@ def junit(path):
     counts={k:sum(int(s.attrib.get(k,0)) for s in suites) for k in ('tests','failures','errors','skipped')}
     status='FAIL' if counts['failures'] or counts['errors'] else ('SKIPPED' if counts['tests']==counts['skipped'] else 'PASS')
     return {'status':status,'counts':counts,'evidence':path,'sha256':hashlib.sha256(file.read_bytes()).hexdigest()}
-report={'version':'0.1.0-alpha.1','generated_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'production_ready':False,
+report={'version':'0.1.0-alpha.2','generated_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'production_ready':False,
         'builds':read('evidence/builds/latest.json'),'default_suites':read('evidence/tests/latest.json'),
         'full_regression':junit('evidence/tests/full-regression.xml'),
         'live_owned_codex':junit('evidence/tests/live-codex.xml'),'live_usage_accounting':junit('evidence/tests/live-accounting.xml'),

@@ -3,42 +3,42 @@
     "component": "go",
     "status": "PASS",
     "exit_code": 0,
-    "seconds": 0.6447799
+    "seconds": 1.2767004
   },
   {
     "component": "rust",
     "status": "PASS",
     "exit_code": 0,
-    "seconds": 0.5773513
+    "seconds": 6.6268692
   },
   {
     "component": "rust-release",
     "status": "PASS",
     "exit_code": 0,
-    "seconds": 0.5025923
+    "seconds": 4.4378936
   },
   {
     "component": "typescript",
     "status": "PASS",
     "exit_code": 0,
-    "seconds": 1.7299182
+    "seconds": 1.5228562
   },
   {
     "component": "java",
     "status": "PASS",
     "exit_code": 0,
-    "seconds": 2.5942303
+    "seconds": 2.4239767
   },
   {
     "component": "python",
     "status": "PASS",
     "exit_code": 0,
-    "seconds": 13.753948
+    "seconds": 11.4142265
   },
   {
     "component": "django",
     "status": "PASS",
     "exit_code": 0,
-    "seconds": 3.5386041
+    "seconds": 3.2149043
   }
 ]

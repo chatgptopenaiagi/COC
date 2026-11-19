@@ -1,0 +1,7 @@
+{
+  "status": "FAIL",
+  "stage": "Java JAR rebuild during TEST",
+  "reason": "The running local review JVM held the JAR open on Windows.",
+  "response": "Confirmed no active tasks, stopped only COC-owned review processes, then reran the complete default suite. The existing external Codex server was not stopped.",
+  "final_result_reference": "evidence/tests/full-regression.xml"
+}

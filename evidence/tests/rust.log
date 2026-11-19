@@ -1,5 +1,6 @@
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.45s
-     Running unittests src\lib.rs (kernels\rust\target\debug\build\coc-native/e092eea9c371f0d8\out\coc_native-e092eea9c371f0d8.exe)
+   Compiling coc-native v0.1.0-alpha.2 (C:\xampp\COC\kernels\rust)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.11s
+     Running unittests src\lib.rs (kernels\rust\target\debug\build\coc-native/3bf48f3f6a3fff83\out\coc_native-3bf48f3f6a3fff83.exe)
 
 running 3 tests
 test tests::reject_plaintext_remote ... ok
@@ -8,7 +9,7 @@ test tests::common_contract ... ok
 
 test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
 
-     Running unittests src\main.rs (kernels\rust\target\debug\build\coc-native/5fb65fcb78d333c3\out\coc_native-5fb65fcb78d333c3.exe)
+     Running unittests src\main.rs (kernels\rust\target\debug\build\coc-native/8057277afd6d7761\out\coc_native-8057277afd6d7761.exe)
 
 running 0 tests
 

@@ -4,7 +4,7 @@ An application integration engine with a Go coordination broker, Rust native
 boundary, Python agent orchestration and interoperable Java, JavaScript and
 TypeScript clients. Django provides optional authenticated administration.
 
-**Engineering prerelease: 0.1.0-alpha.1.** This is executable software with live
+**Engineering prerelease: 0.1.0-alpha.2.** This is executable software with live
 integration evidence. It is not a production-ready universal application adapter.
 Applications explicitly publish tools; the engine does not acquire arbitrary
 application or operating-system privileges.
